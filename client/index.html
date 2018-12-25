@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kaltura Creator Pro</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,700,900">
+</head>
+<body>
+    <div id="login" class="panel">
+        <div class="loginPanel">
+            <div class="title">
+                <img src="assets/logo.gif">
+                <span>Creator Pro</span>
+            </div>
+            <span class="loginLabel">Login</span>
+            <input class="loginInput" id="user" type="text" placeholder="User Name" value="amir.chervinsky@kaltura.com">
+            <input class="loginInput" id="pass" type="password" placeholder="Password" value="Kaltura!1">
+            <div style="display: flex; margin-top: 20px; color: #666666">
+                <label><input type="checkbox" name="remember" value="remember" checked>Remember Me</label>
+                <span class="link" style="margin-left: 160px;">Forgot Password?</span>
+            <!--</div>-->
+            <div class="button" id="login-button">
+                <span align="center">Login</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="entriesList" class="panel" style="display: none">
+        <div style="width: 500px; height: 300px; overflow-y: auto">
+            <ul id="entries"></ul>
+        </div>
+    </div>
+    <!-- 1) Simple HTML UI elements to get us started -->
+    <!--h1>Kaltura Connector</h1>
+    <div class="login">
+        <h3>Login:</h3>
+        <input id="user" style="width: 200px; margin-bottom: 8px" type="text" placeholder="User Name">
+        <input id="pass" style="width: 200px; margin-bottom: 8px" type="password" placeholder="Password">
+        <div style="display: flex">
+            <button style="width: 80px" id="login-button">Login</button>
+            <button style="width: 80px" id="download-button">Download</button>
+            <button style="width: 80px" id="upload-button">Upload</button>
+            <button style="width: 80px" id="export-button">Export</button>
+        </div>
+
+
+
+    </div-->
+    <!-- 3) Add your script dependencies here, including CEP's CSInterface.js library -->
+    <script type="text/javascript" src="CSInterface.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
