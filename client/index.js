@@ -21,6 +21,7 @@ function login(){
           alert(data.message); // login error
       } else {
           $("#login").hide();
+          $("#header").show();
           $("#entriesList").show();
           ks = data;
           listEntries();
