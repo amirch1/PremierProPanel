@@ -1,2 +1,4 @@
-/downloads
-/export
+.git/**
+.idea/**
+downloads/**
+export/**
