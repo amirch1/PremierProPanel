@@ -106,9 +106,13 @@ body{
     margin-left: auto;
     width: 80px;
     height: 24px;
-    background-color: #222222;
-    border: 1px solid white;
+    border: 1px solid #666666;
     border-radius: 3px;
+    background-color: rgba(255,255,255,0.1);
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
 }
 #header .button:hover{
     background-color: #F8A61A;
@@ -155,6 +159,19 @@ ul li img{
 ul li button{
     margin-left: auto;
     margin-right: 12px;
+    height: 28px;
+    width: 70px;
+    border: 1px solid #666666;
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.1);
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+}
+ul li button:hover {
+    background-color: #F8A61A;
+    border: 1px solid #F8A61A;
 }
 #entriesList{
     margin-top: 65px;

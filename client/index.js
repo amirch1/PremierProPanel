@@ -9,6 +9,19 @@ $('#download-button').on('click', download);
 $('#upload-button').on('click', upload);
 $('#export-button').on('click', exportClip);
 
+initApp();
+
+function initApp(){
+    // check if "download" and "export" folders exist and create them if not
+    const extensionBasePAth = csInterface.getSystemPath(SystemPath.EXTENSION);
+    if (!pathExists(extensionBasePAth + '/downloads/')){
+        createFolder(extensionBasePAth + '/downloads');
+    }
+    if (!pathExists(extensionBasePAth + '/export/')){
+        createFolder(extensionBasePAth + '/export');
+    }
+}
+
 function login(){
   const user = $('#user').val();
   const pass = $('#pass').val();
@@ -47,12 +60,13 @@ function listEntries(){
         var entries = data.objects;
         for (var i=0; i<entries.length; i++){
             var entry = data.objects[i];
-           $("#entries").append('<li><img src="'+entry.thumbnailUrl+'"/><span class="entryName">'+entry.name+'</span><button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\')">Open</button></li>');
+           $("#entries").append('<li><img src="'+entry.thumbnailUrl+'"/><span class="entryName">'+entry.name+'</span><button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\')">Edit</button></li>');
         }
     });
 }
 
-function download(src, name){
+
+function download(src, name, entryId){
     filename = name;
     var xhr = new XMLHttpRequest();
     xhr.open('GET', src, true);
@@ -67,14 +81,33 @@ function download(src, name){
             }
             var data = binaryString.join('');
             var base64 = window.btoa(data);
-            var dir = csInterface.getSystemPath(SystemPath.EXTENSION) + '/downloads/';
-            var downloadedFile = dir + filename + ".mp4"; // TODO - get correct format from API;
-            window.cep.fs.writeFile(downloadedFile, base64, window.cep.encoding.Base64);
 
-            var sequencePresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/KalturaCreatorSequence.sqpreset';
-            csInterface.evalScript("app.project.importFiles(['"+downloadedFile+"'])", function(result) {
-                csInterface.evalScript("setClipOnTrack('" + downloadedFile + "', '" + sequencePresetPath + "')");
-            })
+            // we need to get the source type for the downloaded file using another call to Kaltura PI. Saving the file and importing to Premier can be done only after getting the source type.
+            $.post( "https://www.kaltura.com/api_v3/service/flavorasset/action/getByEntryId", {
+                format: 1,
+                ks: ks,
+                entryId: entryId
+            }, function( flavours ) {
+                var format = "mp4";
+                for (var i=0; i<flavours.length; i++){
+                    var flavor = flavours[i];
+                    if (flavor.isOriginal == 1){
+                        format = flavor.fileExt;
+                        break;
+                    }
+                }
+                var dir = csInterface.getSystemPath(SystemPath.EXTENSION) + '/downloads/';
+                var downloadedFile = dir + filename + "." + format;
+                window.cep.fs.writeFile(downloadedFile, base64, window.cep.encoding.Base64);
+
+                // use a preset for creating a new sequence to prevent a user dialogue opening for sequence settings
+                var sequencePresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/KalturaCreatorSequence.sqpreset';
+
+                // import the downloaded file to the project, create a new sequence and put it in the sequence
+                csInterface.evalScript("app.project.importFiles(['"+downloadedFile+"'])", function(result) {
+                    csInterface.evalScript("setClipOnTrack('" + downloadedFile + "', '" + sequencePresetPath + "')");
+                });
+            });
         }
     };
     xhr.send();
@@ -188,4 +221,14 @@ function exportClip() {
     var outputPresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/Match_Source_H264.epr';
     var outputPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/export';
     csInterface.evalScript("exportMedia('" + outputPresetPath + "', '" + outputPath + "', '"+ filename + "')");
+}
+
+/* utils */
+function pathExists(path)
+{
+    return window.cep.fs.stat(path).err != window.cep.fs.ERR_NOT_FOUND;
+}
+function createFolder(path)
+{
+    const res = window.cep.fs.makedir(path);
 }
