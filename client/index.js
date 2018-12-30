@@ -60,14 +60,31 @@ function listEntries(){
         var entries = data.objects;
         for (var i=0; i<entries.length; i++){
             var entry = data.objects[i];
-           $("#entries").append('<li><img src="'+entry.thumbnailUrl+'"/><span class="entryName">'+entry.name+'</span><button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\')">Edit</button></li>');
+           $("#entries").append('<li><img src="'+entry.thumbnailUrl+'"/><span class="entryName">'+entry.name+'</span><button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\',\''+entry.thumbnailUrl+'\')">Edit</button></li>');
         }
     });
 }
 
 
-function download(src, name, entryId){
-    filename = name;
+function download(src, name, entryId, thumbnailUrl){
+    // update UI
+    $("#entriesList").hide();
+    $("#editEntry").show();
+    $("#entryThumbnail").attr('src',thumbnailUrl+"/width/280");
+
+    $.post( "https://www.kaltura.com/api_v3/service/baseentry/action/get", {
+        format: 1,
+        ks: ks,
+        entryId: entryId
+    }, function( entry ) {
+        $("#entryId").text(entryId);
+        $("#entryName").text(name);
+        $("#entryCreator").text(entry.creatorId);
+        $("#entryCreated").text(new Date(entry.createdAt * 1000).toString().substr(0,24));
+        $("#entryUpdated").text(new Date(entry.updatedAt * 1000).toString().substr(0,24));
+    });
+
+
     var xhr = new XMLHttpRequest();
     xhr.open('GET', src, true);
     xhr.responseType = 'arraybuffer';
@@ -97,7 +114,7 @@ function download(src, name, entryId){
                     }
                 }
                 var dir = csInterface.getSystemPath(SystemPath.EXTENSION) + '/downloads/';
-                var downloadedFile = dir + filename + "." + format;
+                var downloadedFile = dir + name + "." + format;
                 window.cep.fs.writeFile(downloadedFile, base64, window.cep.encoding.Base64);
 
                 // use a preset for creating a new sequence to prevent a user dialogue opening for sequence settings

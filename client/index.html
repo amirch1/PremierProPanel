@@ -42,23 +42,24 @@
             <ul id="entries"></ul>
         </div>
     </div>
-    <!-- 1) Simple HTML UI elements to get us started -->
-    <!--h1>Kaltura Connector</h1>
-    <div class="login">
-        <h3>Login:</h3>
-        <input id="user" style="width: 200px; margin-bottom: 8px" type="text" placeholder="User Name">
-        <input id="pass" style="width: 200px; margin-bottom: 8px" type="password" placeholder="Password">
-        <div style="display: flex">
-            <button style="width: 80px" id="login-button">Login</button>
-            <button style="width: 80px" id="download-button">Download</button>
-            <button style="width: 80px" id="upload-button">Upload</button>
-            <button style="width: 80px" id="export-button">Export</button>
+
+    <div id="editEntry" class="panel" style="display: none;">
+        <div style="display: flex; flex-direction: column; padding: 30px">
+            <span class="title">Currently Editing:</span>
+            <div style="display: flex; flex-direction: row">
+                <img style="flex: 0 0 auto" id="entryThumbnail">
+                <div class="entryDetails">
+                    <div><label>ID: </label><span id="entryId"></span></div>
+                    <div><label>Name: </label><span id="entryName"></span></div>
+                    <div><label>By: </label><span id="entryCreator"></span></div>
+                    <div><label>Created: </label><span id="entryCreated"></span></div>
+                    <div><label>Updated: </label><span id="entryUpdated"></span></div>
+                </div>
+            </div>
+
         </div>
+    </div>
 
-
-
-    </div-->
-    <!-- 3) Add your script dependencies here, including CEP's CSInterface.js library -->
     <script type="text/javascript" src="CSInterface.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </body>

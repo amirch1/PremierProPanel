@@ -10,6 +10,13 @@ body{
     width: 100%;
     height: 100vh;
 }
+.floater{
+    display: block;
+    background-color: red;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
 .button{
     width: 400px;
     height: 42px;
@@ -178,6 +185,38 @@ ul li button:hover {
     color: white;
     font-size: 16px;
     font-weight: 700;
+}
+
+/* edit entry */
+#editEntry .title{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+#editEntry .entryDetails{
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+}
+#editEntry .entryDetails div{
+    margin-bottom: 16px;
+}
+#editEntry .entryDetails label{
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 4px;
+}
+#editEntry .entryDetails span{
+    font-weight: bold;
+    font-size: 16px;
+    color: #666666;
+}
+#entryThumbnail{
+    border: 1px solid white;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 280px;
+    height: 160px;
 }
 .entryName{
     margin-left: 12px;

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="39ce1526-ac9d-42b6-af4f-82bdf9b76c87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/styles.css" afterDir="false" />
     </list>
@@ -74,34 +75,35 @@
     <session id="514170196">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="1259" />
+          <entry key="css" value="1453" />
           <entry key="debug" value="11" />
           <entry key="gitignore" value="41" />
-          <entry key="html" value="563" />
-          <entry key="js" value="1184" />
+          <entry key="html" value="982" />
+          <entry key="js" value="1525" />
           <entry key="jsx" value="189" />
-          <entry key="txt" value="86" />
+          <entry key="txt" value="158" />
           <entry key="xml" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1259" />
-          <entry key="HTML" value="563" />
+          <entry key="CSS" value="1453" />
+          <entry key="HTML" value="982" />
           <entry key="JSX Harmony" value="189" />
-          <entry key="JavaScript" value="1184" />
-          <entry key="PLAIN_TEXT" value="127" />
+          <entry key="JavaScript" value="1525" />
+          <entry key="PLAIN_TEXT" value="199" />
           <entry key="XML" value="36" />
         </counts>
       </usages-collector>
@@ -128,26 +130,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="39" column="24" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="24" />
+            <state relative-caret-position="285">
+              <caret line="40" column="33" lean-forward="true" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="213" column="5" lean-forward="true" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
+            <state relative-caret-position="127">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
             </state>
           </provider>
         </entry>
@@ -216,8 +222,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1710">
-              <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
+            <state relative-caret-position="449">
+              <caret line="218" column="17" selection-start-line="218" selection-start-column="17" selection-end-line="218" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -247,6 +253,8 @@
       <find>exportMedia</find>
       <find>direct</find>
       <find>folder</find>
+      <find>filename</find>
+      <find>img</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -260,9 +268,9 @@
         <option value="$PROJECT_DIR$/host/index.jsx" />
         <option value="$PROJECT_DIR$/CSXS/manifest.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/client/index.html" />
-        <option value="$PROJECT_DIR$/client/styles.css" />
         <option value="$PROJECT_DIR$/client/index.js" />
+        <option value="$PROJECT_DIR$/client/styles.css" />
+        <option value="$PROJECT_DIR$/client/index.html" />
       </list>
     </option>
   </component>
@@ -273,7 +281,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1916" />
+    <option name="x" value="-1919" />
     <option name="y" value="23" />
     <option name="width" value="1909" />
     <option name="height" value="983" />
@@ -285,7 +293,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,6 +319,11 @@
             <path>
               <item name="com.kaltura.creator" type="b2602c69:ProjectViewProjectNode" />
               <item name="com.kaltura.creator" type="462c0819:PsiDirectoryNode" />
+              <item name="downloads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="com.kaltura.creator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="com.kaltura.creator" type="462c0819:PsiDirectoryNode" />
               <item name="host" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -323,6 +335,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,7 +390,8 @@
       <workItem from="1545804973379" duration="2384000" />
       <workItem from="1545828886572" duration="1183000" />
       <workItem from="1545831600436" duration="1726000" />
-      <workItem from="1545890992525" duration="3773000" />
+      <workItem from="1545890992525" duration="5072000" />
+      <workItem from="1546149027440" duration="5769000" />
     </task>
     <task id="LOCAL-00001" summary="Kaltura Creator Pro initial commit">
       <created>1545765880959</created>
@@ -407,14 +421,21 @@
       <option name="project" value="LOCAL" />
       <updated>1545830030973</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="init app, get downloaded file source format from Kaltura API">
+      <created>1545899543526</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1545899543526</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64971000" />
+    <option name="totallyTimeSpent" value="72039000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1916" y="23" width="1909" height="983" extended-state="0" />
+    <frame x="-1919" y="23" width="1909" height="983" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14300847" />
@@ -443,10 +464,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Kaltura Creator Pro initial commit" />
     <MESSAGE value="style fixes" />
     <MESSAGE value="entries list layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="entries list layout" />
+    <MESSAGE value="init app, get downloaded file source format from Kaltura API" />
+    <option name="LAST_COMMIT_MESSAGE" value="init app, get downloaded file source format from Kaltura API" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/presets/Match_Source_H264.epr">
@@ -506,30 +530,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
+        <state relative-caret-position="449">
+          <caret line="218" column="17" selection-start-line="218" selection-start-column="17" selection-end-line="218" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="39" column="24" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="24" />
+        <state relative-caret-position="285">
+          <caret line="40" column="33" lean-forward="true" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="213" column="5" lean-forward="true" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
         </state>
       </provider>
     </entry>
