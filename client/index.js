@@ -25,6 +25,12 @@ function initApp(){
         event.stopImmediatePropagation();
         event.preventDefault();
     });
+    $("#search").on('keyup', function (e) {
+        if (e.keyCode == 13) {
+            listEntries();
+        }
+    });
+
 }
 
 function login(){
@@ -54,12 +60,14 @@ function login(){
 
 function listEntries(){
     setStatus("Loading Entries...");
+    var search = $("#search").val();
+    $("ul").empty();
     $.post( "https://www.kaltura.com/api_v3/service/baseentry/action/list", {
         format: 1,
         ks: ks,
         filter: {
             typeEqual: 1,
-            // nameMultiLikeOr: 'Kaltura Logo'
+            nameMultiLikeOr: search.length ? search  : ''
         },
         responseProfile: {
             type: 1,
@@ -75,7 +83,6 @@ function listEntries(){
         resetStatus();
     });
 }
-
 
 function download(src, name, entryId, thumbnailUrl){
     // update UI

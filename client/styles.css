@@ -6,6 +6,11 @@ body{
     overflow: hidden;
     margin: 0px;
 }
+input[type=checkbox]
+{
+    -webkit-transform: scale(1.4);
+    margin-right: 8px;
+}
 .panel{
     width: 100%;
     height: 100vh;
@@ -87,11 +92,6 @@ body{
     background-color: #FFFFFF;
     font-size: 16px;
     padding-left: 8px;
-}
-.loginPanel input[type=checkbox]
-{
-    -webkit-transform: scale(1.4);
-    margin-right: 8px;
 }
 .loginPanel .link{
     font-size: 16px;
@@ -228,6 +228,24 @@ ul li button:hover {
 }
 .entriesList .panelTitle{
     padding-left: 12px;
+}
+.entriesList input[type=checkbox] {
+    -webkit-transform: scale(1.2);
+}
+.entriesList label {
+   font-size: 14px;
+}
+.entriesList .search{
+    width: 160px;
+    height: 20px;
+    font-size: 14px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin-left: auto;
+    padding-left: 4px;
+}
+.entriesList .search:focus {
+    outline-width: 0;
 }
 ul::-webkit-scrollbar {
     width: 5px;
