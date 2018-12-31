@@ -59,7 +59,7 @@ function login(){
 
 
 function listEntries(){
-    setStatus("Loading Entries...");
+    setStatus("Loading Entries..."); // set status
     var search = $("#search").val();
     $("ul").empty();
     $.post( "https://www.kaltura.com/api_v3/service/baseentry/action/list", {
