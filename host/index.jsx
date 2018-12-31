@@ -65,3 +65,11 @@ function exportMedia(outputPresetPath, outputPath, filename){
         projPath.close();
     }
 }
+
+function closeActiveSequence(){
+    var seq = app.project.activeSequence;
+
+    if (seq) {
+        seq.close();
+    }
+}

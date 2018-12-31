@@ -17,23 +17,6 @@ body{
     top: 0px;
     left: 0px;
 }
-.button{
-    width: 400px;
-    height: 42px;
-    border-radius: 4px;
-    background-color: #F8A61A;
-    border: 1px solid #F8A61A;
-    color: white;
-    text-align: center;
-    cursor: pointer;
-}
-.button:hover{
-    background-color: #f8970e;
-}
-.button span{
-    line-height: 42px;
-    font-weight: 700;
-}
 .disabled {
     pointer-events: none;
     opacity: 0.3;
@@ -43,6 +26,27 @@ body{
     font-weight: bold;
     margin-bottom: 24px;
 }
+.button{
+    text-align: center;
+    width: 80px;
+    height: 24px;
+    border: 1px solid #666666;
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.1);
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #F8A61A;
+    border: 1px solid #F8A61A;
+}
+.button span{
+    line-height: 24px;
+    font-size: 13px;
+}
+
 /* Login Screen */
 .loginPanel{
     background-color: #222222;
@@ -67,9 +71,6 @@ body{
 .loginPanel .title span{
     font-size: 28px;
     margin-left: 8px;
-}
-.loginPanel .button{
-    margin-top: 30px;
 }
 .loginPanel .loginLabel{
     color: #F4F4F4;
@@ -100,7 +101,24 @@ body{
 .loginPanel .link:hover{
     text-decoration: underline;
 }
-
+.loginPanel .button{
+    margin-top: 30px;
+    width: 400px;
+    height: 42px;
+    border-radius: 4px;
+    background-color: #F8A61A;
+    border: 1px solid #F8A61A;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.loginPanel .button:hover{
+    background-color: #f8970e;
+}
+.loginPanel .button span{
+    line-height: 42px;
+    font-weight: 700;
+}
 /* header */
 #header{
     display: flex;
@@ -117,26 +135,6 @@ body{
 }
 #header img{
     margin-left: 12px;
-}
-#header .button{
-    margin-left: auto;
-    width: 80px;
-    height: 24px;
-    border: 1px solid #666666;
-    border-radius: 3px;
-    background-color: rgba(255,255,255,0.1);
-    font-size: 12px;
-    font-weight: 700;
-    color: white;
-    cursor: pointer;
-}
-#header .button:hover{
-    background-color: #F8A61A;
-    border: 1px solid #F8A61A;
-}
-#header .button span{
-    line-height: 24px;
-    font-size: 13px;
 }
 #header .username{
     margin-right: 16px;
@@ -268,6 +266,27 @@ ul::-webkit-scrollbar-thumb {
     overflow: hidden;
     width: 280px;
     height: 160px;
+}
+#editEntry .explain{
+    font-size: 14px;
+    margin-top: 12px;
+}
+#editEntry .buttons{
+    display: flex;
+    margin-top: 80px;
+    align-items: center;
+    justify-content: center;
+}
+#editEntry .button{
+    width: 120px;
+    height: 32px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+#editEntry .button span{
+    line-height: 32px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* preloader panel */

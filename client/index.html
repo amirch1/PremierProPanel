@@ -30,7 +30,7 @@
     <div id="header" style="display: none">
         <img width="173px" height="47px" src="assets/logo.gif">
         <span class="title">Creator Pro</span>
-        <div class="button">
+        <div class="button" style="margin-left: auto">
             <span>Upload</span>
         </div>
         <img src="assets/user.gif">
@@ -47,7 +47,7 @@
     <div id="editEntry" class="panel" style="display: none;">
         <div style="display: flex; flex-direction: column; padding: 30px">
             <span class="panelTitle">Currently Editing:</span>
-            <div style="display: flex; flex-direction: row">
+            <div style="display: flex; flex-direction: row; margin-top: 12px">
                 <img style="flex: 0 0 auto" id="entryThumbnail">
                 <div class="entryDetails">
                     <div><label>ID: </label><span id="entryId"></span></div>
@@ -57,7 +57,15 @@
                     <div><label>Updated: </label><span id="entryUpdated"></span></div>
                 </div>
             </div>
-
+            <!--div class="explain">Edit the entry using Adobe Premier Pro.<br>When done, select "Update" to update the entry on the Kaltura server or create a new Entry. Click "Close" to disregard changes.</div-->
+            <div class="buttons">
+                <div id="close-edit-button" class="button">
+                    <span>Close</span>
+                </div>
+                <div class="button">
+                    <span>Update</span>
+                </div>
+            </div>
         </div>
     </div>
 

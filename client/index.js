@@ -6,6 +6,7 @@ var filename = '';
 
 $('#login-button').on('click', login);
 $('#download-button').on('click', download);
+$('#close-edit-button').on('click', closeEdit);
 $('#upload-button').on('click', upload);
 $('#export-button').on('click', exportClip);
 
@@ -140,6 +141,13 @@ function download(src, name, entryId, thumbnailUrl){
         }
     };
     xhr.send();
+}
+
+function closeEdit(){
+    csInterface.evalScript("closeActiveSequence()");
+    $("#editEntry").hide();
+    $("#entriesList").show();
+    $("ul").scrollTop(0);
 }
 
 function upload() {
