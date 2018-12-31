@@ -39,13 +39,14 @@
 
     <div id="entriesList" class="panel" style="display: none">
         <div class="entriesList">
+            <span class="panelTitle">Entries List</span>
             <ul id="entries"></ul>
         </div>
     </div>
 
     <div id="editEntry" class="panel" style="display: none;">
         <div style="display: flex; flex-direction: column; padding: 30px">
-            <span class="title">Currently Editing:</span>
+            <span class="panelTitle">Currently Editing:</span>
             <div style="display: flex; flex-direction: row">
                 <img style="flex: 0 0 auto" id="entryThumbnail">
                 <div class="entryDetails">
@@ -59,6 +60,15 @@
 
         </div>
     </div>
+
+    <div class="statusContainer" style="display: none">
+        <span class="label">Status:</span><span id="status">Idle</span>
+    </div>
+
+    <!--div id="loader">
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <span>Loading...</span>
+    </div-->
 
     <script type="text/javascript" src="CSInterface.js"></script>
     <script type="text/javascript" src="index.js"></script>

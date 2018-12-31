@@ -34,6 +34,15 @@ body{
     line-height: 42px;
     font-weight: 700;
 }
+.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+}
+.panelTitle{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
 /* Login Screen */
 .loginPanel{
     background-color: #222222;
@@ -142,11 +151,35 @@ body{
     margin-left: 16px;
 }
 
+/* status footer */
+.statusContainer{
+    background-color: #222222;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 28px;
+    padding-left: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.statusContainer .label{
+    font-size: 15px;
+    font-weight: bold;
+}
+.statusContainer #status{
+    font-size: 15px;
+    font-weight: bold;
+    color: #666666;
+    margin-left: 8px;
+}
 /* entries list */
 ul{
     padding: 0;
     margin: 0;
     list-style-type: none;
+    height: 100%;
+    overflow-y: auto;
 }
 ul li{
     list-style: none;
@@ -181,18 +214,36 @@ ul li button:hover {
     border: 1px solid #F8A61A;
 }
 #entriesList{
-    margin-top: 65px;
+    padding-top: 30px;
     color: white;
     font-size: 16px;
     font-weight: 700;
 }
+.entryName{
+    margin-left: 12px;
+}
+.entriesList {
+    width: 645px;
+    height: 435px;
+    display: flex;
+    flex-direction: column;
+}
+.entriesList .panelTitle{
+    padding-left: 12px;
+}
+ul::-webkit-scrollbar {
+    width: 5px;
+}
+
+ul::-webkit-scrollbar-track {
+    background: #222222;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: #666666;
+}
 
 /* edit entry */
-#editEntry .title{
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 24px;
-}
 #editEntry .entryDetails{
     display: flex;
     flex-direction: column;
@@ -218,22 +269,23 @@ ul li button:hover {
     width: 280px;
     height: 160px;
 }
-.entryName{
-    margin-left: 12px;
-}
-.entriesList {
-    width: 645px;
-    height: 435px;
-    overflow-y: auto;
-}
-.entriesList::-webkit-scrollbar {
-    width: 5px;
-}
 
-.entriesList::-webkit-scrollbar-track {
-    background: #222222;
+/* preloader panel */
+#loader{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    cursor: default;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-.entriesList::-webkit-scrollbar-thumb {
-    background: #666666;
+#loader span{
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
 }

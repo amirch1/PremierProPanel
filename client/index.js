@@ -20,9 +20,14 @@ function initApp(){
     if (!pathExists(extensionBasePAth + '/export/')){
         createFolder(extensionBasePAth + '/export');
     }
+    $('#loader').click(function( event ) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+    });
 }
 
 function login(){
+  $('#login-button').addClass("disabled");
   const user = $('#user').val();
   const pass = $('#pass').val();
   $.post( "https://www.kaltura.com/api_v3/service/user/action/loginByLoginId", {
@@ -32,9 +37,12 @@ function login(){
   }, function( data ) {
       if (data.message){
           alert(data.message); // login error
+          $('#login-button').removeClass("disabled");
       } else {
+          $('#login-button').removeClass("disabled");
           $("#login").hide();
           $("#header").show();
+          $(".statusContainer").show();
           $("#entriesList").show();
           ks = data;
           listEntries();
@@ -44,6 +52,7 @@ function login(){
 
 
 function listEntries(){
+    setStatus("Loading Entries...");
     $.post( "https://www.kaltura.com/api_v3/service/baseentry/action/list", {
         format: 1,
         ks: ks,
@@ -62,12 +71,14 @@ function listEntries(){
             var entry = data.objects[i];
            $("#entries").append('<li><img src="'+entry.thumbnailUrl+'"/><span class="entryName">'+entry.name+'</span><button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\',\''+entry.thumbnailUrl+'\')">Edit</button></li>');
         }
+        resetStatus();
     });
 }
 
 
 function download(src, name, entryId, thumbnailUrl){
     // update UI
+    setStatus("Downloading Entry...");
     $("#entriesList").hide();
     $("#editEntry").show();
     $("#entryThumbnail").attr('src',thumbnailUrl+"/width/280");
@@ -123,6 +134,7 @@ function download(src, name, entryId, thumbnailUrl){
                 // import the downloaded file to the project, create a new sequence and put it in the sequence
                 csInterface.evalScript("app.project.importFiles(['"+downloadedFile+"'])", function(result) {
                     csInterface.evalScript("setClipOnTrack('" + downloadedFile + "', '" + sequencePresetPath + "')");
+                    resetStatus();
                 });
             });
         }
@@ -248,4 +260,10 @@ function pathExists(path)
 function createFolder(path)
 {
     const res = window.cep.fs.makedir(path);
+}
+function setStatus(status){
+    $('#status').text(status);
+}
+function resetStatus(status){
+    $('#status').text('Idle');
 }
