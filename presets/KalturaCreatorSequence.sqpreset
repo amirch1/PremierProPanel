@@ -37,7 +37,7 @@
 		<VideoTimeDisplay>102</VideoTimeDisplay>
 		<AudioChannelType>1</AudioChannelType>
 		<AudioFrameRate>5292000</AudioFrameRate>
-		<VideoFrameSize>0,0,720,480</VideoFrameSize>
+		<VideoFrameSize>0,0,640,360</VideoFrameSize>
 		<VideoFrameRate>8475667200</VideoFrameRate>
 	</SequencePreset>
 </PremiereData>

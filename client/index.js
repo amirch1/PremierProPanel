@@ -2,13 +2,26 @@ var csInterface = new CSInterface();
 var ks = '';
 var uploadTokenId = '';
 var entryId = '';
-var filename = '';
 
 $('#login-button').on('click', login);
 $('#download-button').on('click', download);
 $('#close-edit-button').on('click', closeEdit);
 $('#upload-button').on('click', upload);
 $('#export-button').on('click', exportClip);
+$('#uploadCurrentEntry').on('click', function(){
+    if ($('input[type=radio][name=update]:checked').val() === "create" && $('#updateEntryName').val().length === 0){
+        alert("Please Enter an Entry Name.");
+    } else {
+        exportClip();
+        upload();
+    }
+});
+$('#updateOpenEntry').on('click', function(){
+    $('#update').show();
+});
+$('#cancel-edit-button').on('click', function(){
+    $('#update').hide();
+});
 
 initApp();
 
@@ -54,6 +67,17 @@ function initApp(){
             listEntries();
        }
     })
+      clearSearch();
+    }).hide();
+
+    $('input[type=radio][name=update]').change(function() {
+        if (this.value == 'overwrite') {
+            $('#updateEntryName').addClass("disabled");
+        }
+        else if (this.value == 'create') {
+            $('#updateEntryName').removeClass("disabled");
+        }
+    });
 }
 
 function clearSearch(){
@@ -177,6 +201,20 @@ function download(src, name, entryId, thumbnailUrl){
         $("#entryUpdated").text(new Date(entry.updatedAt * 1000).toString().substr(0,24));
     });
 
+    $.post( "https://www.kaltura.com/api_v3/service/metadata_metadata/action/list", {
+        format: 1,
+        ks: ks,
+        filter: {
+            objectIdEqual: entryId
+        }
+    }, function( response ) {
+        if (response.objects.length){
+            const metadata = response.objects[0].xml;
+            const message = metadata.substring(metadata.indexOf('<Comments>')+10, metadata.indexOf('</Comments'));
+            $('#task').text(message);
+        }
+    });
+
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', src, true);
@@ -232,7 +270,6 @@ function closeEdit(){
 }
 
 function upload() {
-
     // create a new upload token
     $.post("https://www.kaltura.com/api_v3/service/uploadtoken/action/add", {
         format: 1,
@@ -242,32 +279,34 @@ function upload() {
         continueUpload();
     });
 
-    // create a new entry
-    $.post( "https://www.kaltura.com/api_v3/service/media/action/add", {
-        format: 1,
-        ks: ks,
-        entry: {
-            mediaType: 1,
-            name: "test2",
-            objectType: "KalturaMediaEntry"
-        }
-    }, function( entry ) {
-        entryId = entry.id;
-        continueUpload();
-    });
+    if ($('input[type=radio][name=update]:checked').val() === "create"){
+        // create a new entry
+        $.post( "https://www.kaltura.com/api_v3/service/media/action/add", {
+            format: 1,
+            ks: ks,
+            entry: {
+                mediaType: 1,
+                name: $('#updateEntryName').val(),
+                objectType: "KalturaMediaEntry"
+            }
+        }, function( entry ) {
+            entryId = entry.id;
+            continueUpload();
+        });
+    }
 }
 // continue upload
 function continueUpload(){
     if (uploadTokenId.length > 0 && entryId.length > 0){
         // read file
-        var dir = csInterface.getSystemPath(SystemPath.EXTENSION) + '/downloads/';
-        var uploadFile =dir + 'small.mp4';
+        var dir = csInterface.getSystemPath(SystemPath.EXTENSION) + '/export/';
+        var uploadFile =dir + 'temp.mp4';
         result = window.cep.fs.readFile(uploadFile, window.cep.encoding.Base64);
         var base64Data = result.data;
 
         // create formData
         var formData = new FormData();
-        formData.append("Filename", "small.mp4");
+        formData.append("Filename", "temp.mp4");
         formData.append("fileData", b64toBlob(base64Data, "video/mp4"));
 
         // upload file
@@ -336,9 +375,9 @@ function b64toBlob(b64Data, contentType, sliceSize) {
 }
 
 function exportClip() {
-    var outputPresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/Match_Source_H264.epr';
+    var outputPresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/Kaltura.epr';
     var outputPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/export';
-    csInterface.evalScript("exportMedia('" + outputPresetPath + "', '" + outputPath + "', '"+ filename + "')");
+    csInterface.evalScript("exportMedia('" + outputPresetPath + "', '" + outputPath + "', '"+ "temp" + "')");
 }
 
 /* utils */

@@ -62,12 +62,16 @@
                     <div><label>Updated: </label><span id="entryUpdated"></span></div>
                 </div>
             </div>
+            <div style="margin-top: 20px">
+                <label style="font-size: 16px; font-weight: bold">Task:</label><br>
+                <span style="font-size: 16px; font-weight: bold; color: #666666" id="task"></span>
+            </div>
             <!--div class="explain">Edit the entry using Adobe Premier Pro.<br>When done, select "Update" to update the entry on the Kaltura server or create a new Entry. Click "Close" to disregard changes.</div-->
             <div class="buttons">
                 <div id="close-edit-button" class="button">
-                    <span>Close</span>
+                    <span>Discard</span>
                 </div>
-                <div class="button">
+                <div class="button" id="updateOpenEntry">
                     <span>Update</span>
                 </div>
             </div>
@@ -78,10 +82,24 @@
         <span class="label">Status:</span><span id="status">Idle</span>
     </div>
 
-    <!--div id="loader">
-        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        <span>Loading...</span>
-    </div-->
+    <div id="update" class="floater" style="display: none">
+        <div class="loginPanel" style="align-items: baseline; padding: 30px">
+            <span style="font-size: 18px; font-weight: bold; margin-bottom: 30px">Update Entry</span>
+            <label style="margin-bottom: 16px; cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="update" value="overwrite">Overwrite Existing Entry</label>
+            <label style="cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="update" checked value="create">Create a New Entry</label>
+            <input id="updateEntryName" style="font-size: 14px; margin-top: 8px; margin-left: 26px; border-radius: 3px; overflow: hidden; width: 160px" type="text" placeholder="Entry Name" value="">
+            <span style="margin-top: 40px; font-weight: bold">Comments:</span>
+            <textarea style="width: 380px; height: 60px; margin-top: 12px"></textarea>
+            <div class="buttons">
+                <div id="cancel-edit-button" class="button">
+                    <span>Cancel</span>
+                </div>
+                <div id="uploadCurrentEntry" class="button">
+                    <span>Update</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="CSInterface.js"></script>
     <script type="text/javascript" src="index.js"></script>
