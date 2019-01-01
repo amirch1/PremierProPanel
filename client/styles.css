@@ -11,16 +11,21 @@ input[type=checkbox]
     -webkit-transform: scale(1.4);
     margin-right: 8px;
 }
+input[type=radio] {
+    -webkit-transform: scale(1.2);
+}
 .panel{
     width: 100%;
     height: 100vh;
 }
 .floater{
     display: block;
-    background-color: red;
+    background-color: rgba(0,0,0,0.8);
     position: fixed;
     top: 0px;
     left: 0px;
+    width: 100%;
+    height: 100%;
 }
 .disabled {
     pointer-events: none;
@@ -101,7 +106,7 @@ input[type=checkbox]
 .loginPanel .link:hover{
     text-decoration: underline;
 }
-.loginPanel .button{
+.loginPanel>.button{
     margin-top: 30px;
     width: 400px;
     height: 42px;
@@ -289,19 +294,20 @@ ul::-webkit-scrollbar-thumb {
     font-size: 14px;
     margin-top: 12px;
 }
-#editEntry .buttons{
+#editEntry .buttons, #update .buttons{
     display: flex;
-    margin-top: 80px;
+    margin-top: 50px;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
-#editEntry .button{
+#editEntry .button, #update .button{
     width: 120px;
     height: 32px;
     margin-left: 12px;
     margin-right: 12px;
 }
-#editEntry .button span{
+#editEntry .button span, #update .button span{
     line-height: 32px;
     font-size: 14px;
     font-weight: bold;
