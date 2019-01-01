@@ -12,8 +12,13 @@ $('#uploadCurrentEntry').on('click', function(){
     if ($('input[type=radio][name=update]:checked').val() === "create" && $('#updateEntryName').val().length === 0){
         alert("Please Enter an Entry Name.");
     } else {
-        exportClip();
-        upload();
+        $('#update').hide();
+        $('#editEntry').hide();
+        $('#uploading').show();
+        setTimeout(()=>{
+            exportClip();
+            upload();
+        }, 200);
     }
 });
 $('#updateOpenEntry').on('click', function(){
@@ -21,6 +26,10 @@ $('#updateOpenEntry').on('click', function(){
 });
 $('#cancel-edit-button').on('click', function(){
     $('#update').hide();
+});
+$('#upload-done-button').on('click', function(){
+    $('#uploading').hide();
+    $('#entriesList').show();
 });
 
 initApp();
@@ -205,6 +214,7 @@ function closeEdit(){
 }
 
 function upload() {
+    setStatus("Uploading to Kaltura...")
     // create a new upload token
     $.post("https://www.kaltura.com/api_v3/service/uploadtoken/action/add", {
         format: 1,
@@ -281,7 +291,9 @@ function updateEntry(){
             ]
         }
     }, function (result) {
-        alert(JSON.stringify(result));
+        $('#uploadButtonLabel').text("Done");
+        $('#upload-done-button').removeClass("disabled");
+        resetStatus();
     });
 }
 
@@ -310,9 +322,11 @@ function b64toBlob(b64Data, contentType, sliceSize) {
 }
 
 function exportClip() {
+    setStatus("Rendering Media...");
     var outputPresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/Kaltura.epr';
     var outputPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/export';
     csInterface.evalScript("exportMedia('" + outputPresetPath + "', '" + outputPath + "', '"+ "temp" + "')");
+    resetStatus();
 }
 
 /* utils */

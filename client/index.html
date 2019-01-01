@@ -101,6 +101,32 @@
         </div>
     </div>
 
+    <div id="uploading" class="panel" style="display: block;">
+        <div style="display: flex; flex-direction: column; padding: 30px">
+            <span class="panelTitle">Uploading Entry</span>
+            <div style="display: flex; flex-direction: row; margin-top: 12px">
+                <img style="flex: 0 0 auto" id="entryThumbnail">
+                <div class="entryDetails">
+                    <div><label>ID: </label><span id="entryId"></span></div>
+                    <div><label>Name: </label><span id="entryName"></span></div>
+                    <div><label>By: </label><span id="entryCreator"></span></div>
+                    <div><label>Created: </label><span id="entryCreated"></span></div>
+                    <div><label>Updated: </label><span id="entryUpdated"></span></div>
+                </div>
+            </div>
+            <div style="margin-top: 20px">
+                <label style="font-size: 16px; font-weight: bold">Comments:</label><br>
+                <span style="font-size: 16px; font-weight: bold; color: #666666" id="comments"></span>
+            </div>
+            <!--div class="explain">Edit the entry using Adobe Premier Pro.<br>When done, select "Update" to update the entry on the Kaltura server or create a new Entry. Click "Close" to disregard changes.</div-->
+            <div class="buttons">
+                <div id="upload-done-button" class="button disabled">
+                    <span id="uploadButtonLabel">Uploading</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="CSInterface.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </body>

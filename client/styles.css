@@ -265,20 +265,20 @@ ul::-webkit-scrollbar-thumb {
 }
 
 /* edit entry */
-#editEntry .entryDetails{
+#editEntry .entryDetails, #uploading .entryDetails{
     display: flex;
     flex-direction: column;
     margin-left: 24px;
 }
-#editEntry .entryDetails div{
+#editEntry .entryDetails div, #uploading .entryDetails div{
     margin-bottom: 16px;
 }
-#editEntry .entryDetails label{
+#editEntry .entryDetails label, #uploading .entryDetails label{
     font-weight: bold;
     font-size: 16px;
     margin-right: 4px;
 }
-#editEntry .entryDetails span{
+#editEntry .entryDetails span, #uploading .entryDetails span{
     font-weight: bold;
     font-size: 16px;
     color: #666666;
@@ -290,24 +290,20 @@ ul::-webkit-scrollbar-thumb {
     width: 280px;
     height: 160px;
 }
-#editEntry .explain{
-    font-size: 14px;
-    margin-top: 12px;
-}
-#editEntry .buttons, #update .buttons{
+#editEntry .buttons, #update .buttons, #uploading .buttons{
     display: flex;
     margin-top: 50px;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
-#editEntry .button, #update .button{
+#editEntry .button, #update .button, #uploading .button{
     width: 120px;
     height: 32px;
     margin-left: 12px;
     margin-right: 12px;
 }
-#editEntry .button span, #update .button span{
+#editEntry .button span, #update .button span, #uploading .button span{
     line-height: 32px;
     font-size: 14px;
     font-weight: bold;
