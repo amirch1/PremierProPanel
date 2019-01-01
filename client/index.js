@@ -75,9 +75,7 @@ function initApp(){
        }else{
             listEntries();
        }
-    })
-      clearSearch();
-    }).hide();
+    });
 
     $('input[type=radio][name=update]').change(function() {
         if (this.value == 'overwrite') {
@@ -197,6 +195,7 @@ function download(src, name, entryId, thumbnailUrl){
     $("#entriesList").hide();
     $("#editEntry").show();
     $("#entryThumbnail").attr('src',thumbnailUrl+"/width/280");
+    $("#upload_entryThumbnail").attr('src',thumbnailUrl+"/width/280");
 
     $.post( "https://www.kaltura.com/api_v3/service/baseentry/action/get", {
         format: 1,
@@ -208,6 +207,11 @@ function download(src, name, entryId, thumbnailUrl){
         $("#entryCreator").text(entry.creatorId);
         $("#entryCreated").text(new Date(entry.createdAt * 1000).toString().substr(0,24));
         $("#entryUpdated").text(new Date(entry.updatedAt * 1000).toString().substr(0,24));
+        $("#upload_entryId").text(entryId);
+        $("#upload_entryName").text(name);
+        $("#upload_entryCreator").text(entry.creatorId);
+        $("#upload_entryCreated").text($("#entryCreated").text());
+        $("#upload_entryUpdated").text($("#entryUpdated").text());
     });
 
     $.post( "https://www.kaltura.com/api_v3/service/metadata_metadata/action/list", {

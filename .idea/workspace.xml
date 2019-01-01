@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39ce1526-ac9d-42b6-af4f-82bdf9b76c87" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/presets/Kaltura_1080p_HD.epr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/presets/Kaltura_2k_HD.epr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/presets/Kaltura_4k_HD.epr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/presets/Kaltura_720p_HD.epr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presets/KalturaCreatorSequence.sqpreset" beforeDir="false" afterPath="$PROJECT_DIR$/presets/KalturaCreatorSequence.sqpreset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presets/Match_Source_H264.epr" beforeDir="false" afterPath="$PROJECT_DIR$/presets/Kaltura.epr" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -94,45 +87,55 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="2187" />
+          <entry key="css" value="2203" />
           <entry key="debug" value="11" />
           <entry key="epr" value="5" />
           <entry key="gitignore" value="41" />
-          <entry key="html" value="2197" />
-          <entry key="js" value="2645" />
+          <entry key="html" value="2316" />
+          <entry key="js" value="2843" />
           <entry key="jsx" value="215" />
           <entry key="sqpreset" value="4" />
-          <entry key="txt" value="207" />
+          <entry key="txt" value="229" />
           <entry key="xml" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="2187" />
-          <entry key="HTML" value="2197" />
+          <entry key="CSS" value="2203" />
+          <entry key="HTML" value="2316" />
           <entry key="JSX Harmony" value="215" />
-          <entry key="JavaScript" value="2645" />
-          <entry key="PLAIN_TEXT" value="248" />
+          <entry key="JavaScript" value="2843" />
+          <entry key="PLAIN_TEXT" value="270" />
           <entry key="XML" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="epr" value="9" />
+          <entry key="css" value="2" />
+          <entry key="epr" value="13" />
           <entry key="gif" value="4" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="2" />
-          <entry key="jsx" value="2" />
-          <entry key="sqpreset" value="1" />
+          <entry key="html" value="1" />
+          <entry key="js" value="3" />
+          <entry key="jsx" value="3" />
+          <entry key="sqpreset" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CSS" value="2" />
+          <entry key="HTML" value="1" />
           <entry key="Image" value="4" />
-          <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="2" />
+          <entry key="JSX Harmony" value="3" />
+          <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="10" />
+          <entry key="XML" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="1" />
+          <entry key="git.branch.create.new" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -142,8 +145,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="89" column="50" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
+            <state relative-caret-position="825">
+              <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -166,8 +169,10 @@
                 <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#1;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#label#1;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#1;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,8 +181,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
+            <state relative-caret-position="385">
+              <caret line="212" column="64" selection-start-line="212" selection-start-column="64" selection-end-line="212" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -185,7 +190,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/host/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
+            <state relative-caret-position="750">
               <caret line="50" column="47" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="47" />
             </state>
           </provider>
@@ -194,7 +199,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/presets/KalturaCreatorSequence.sqpreset">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
+            <state relative-caret-position="555">
               <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
             </state>
           </provider>
@@ -217,7 +222,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/presets/Kaltura_720p_HD.epr">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="12105">
               <caret line="807" column="24" selection-start-line="807" selection-start-column="20" selection-end-line="807" selection-end-column="24" />
             </state>
           </provider>
@@ -226,6 +231,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/presets/Kaltura_1080p_HD.epr">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4410">
+              <caret line="294" column="20" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -239,8 +253,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setClipOnTrack</find>
-      <find>csInterface</find>
       <find>exportClip</find>
       <find>export</find>
       <find>outPreset</find>
@@ -263,16 +275,23 @@
       <find>ajax</find>
       <find>aspect</find>
       <find>640</find>
-      <find>1280</find>
-      <find>floater</find>
       <find>uploadTokenId</find>
       <find>entryId</find>
       <find>filename</find>
       <find>entryName</find>
+      <find>floater</find>
+      <find>entryThumbnail</find>
+      <find>editEntry</find>
+      <find>1280</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="upload" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -282,9 +301,9 @@
         <option value="$PROJECT_DIR$/CSXS/manifest.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/host/index.jsx" />
-        <option value="$PROJECT_DIR$/client/styles.css" />
         <option value="$PROJECT_DIR$/presets/KalturaCreatorSequence.sqpreset" />
         <option value="$PROJECT_DIR$/presets/Kaltura_Custom.epr" />
+        <option value="$PROJECT_DIR$/client/styles.css" />
         <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/index.js" />
       </list>
@@ -399,7 +418,7 @@
       <workItem from="1546149027440" duration="7549000" />
       <workItem from="1546237313649" duration="4665000" />
       <workItem from="1546250888134" duration="3384000" />
-      <workItem from="1546334318658" duration="8956000" />
+      <workItem from="1546334318658" duration="11673000" />
     </task>
     <task id="LOCAL-00001" summary="Kaltura Creator Pro initial commit">
       <created>1545765880959</created>
@@ -457,11 +476,25 @@
       <option name="project" value="LOCAL" />
       <updated>1546243500462</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update entry screen + presets">
+      <created>1546347435461</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1546347435461</updated>
+    </task>
+    <task id="LOCAL-00010" summary="upload">
+      <created>1546349294707</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1546349294707</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90843000" />
+    <option name="totallyTimeSpent" value="93560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1919" y="23" width="1909" height="983" extended-state="0" />
@@ -471,14 +504,14 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32949308" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32949308" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32949308" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32949308" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.2891705" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -502,7 +535,9 @@
     <MESSAGE value="edit entry screen" />
     <MESSAGE value="add status bar" />
     <MESSAGE value="update edit screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="update edit screen" />
+    <MESSAGE value="update entry screen + presets" />
+    <MESSAGE value="upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/client/assets/logo.gif">
@@ -546,40 +581,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="301" column="15" selection-start-line="301" selection-start-column="15" selection-end-line="301" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/presets/Kaltura_2k_HD.epr">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/presets/Kaltura_4k_HD.epr">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/presets/Kaltura_1080p_HD.epr">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/host/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="50" column="47" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="47" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/presets/Kaltura_Custom.epr">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="807" column="23" selection-start-line="807" selection-start-column="20" selection-end-line="807" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/presets/Kaltura_720p_HD.epr">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="807" column="24" selection-start-line="807" selection-start-column="20" selection-end-line="807" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -590,9 +598,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/host/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="47" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/presets/KalturaCreatorSequence.sqpreset">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
+        <state relative-caret-position="555">
           <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
         </state>
       </provider>
@@ -604,10 +619,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/presets/Kaltura_4k_HD.epr">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presets/Kaltura_720p_HD.epr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12105">
+          <caret line="807" column="24" selection-start-line="807" selection-start-column="20" selection-end-line="807" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presets/Kaltura_1080p_HD.epr">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4410">
+          <caret line="294" column="20" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="89" column="50" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
+        <state relative-caret-position="825">
+          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -630,16 +665,18 @@
             <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#1;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#label#1;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
+        <state relative-caret-position="385">
+          <caret line="212" column="64" selection-start-line="212" selection-start-column="64" selection-end-line="212" selection-end-column="64" />
         </state>
       </provider>
     </entry>
