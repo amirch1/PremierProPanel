@@ -34,7 +34,11 @@ $('#cancel-edit-button').on('click', function(){
     $('#update').hide();
 });
 $('.user-menu').on('click', function(){
-    showLogoff();
+    if($('.logoff').is(":visible")){
+        hideLogoff()
+    }else {
+        showLogoff();
+    }
 });
 
 $('#upload-done-button').on('click', function(){
@@ -58,6 +62,9 @@ $('.logoff').hide()
 initApp();
 function showLogoff(){
     $('.logoff').show();
+}
+function hideLogoff(){
+    $('.logoff').hide();
 }
 
 function initApp(){

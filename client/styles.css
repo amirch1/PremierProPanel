@@ -137,6 +137,10 @@ input[type=radio] {
     font-size: 18px;
     font-weight: 700;
     margin-left: 8px;
+    position: absolute;
+    left: 66px;
+    font-size: 11px;
+    top: 38px;
 }
 #header img{
     margin-left: 12px;
