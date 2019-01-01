@@ -26,11 +26,22 @@ function initApp(){
         event.preventDefault();
     });
     $("#search").on('keyup', function (e) {
+      if($("#search").val()){
+        $(".search-close-button").show();
+      }
         if (e.keyCode == 13) {
             listEntries();
         }
     });
+    $(".search-close-button").click( function (e) {
+      clearSearch();
+    })
+    .hide();
+}
 
+function clearSearch(){
+  $("#search").val("");
+  $(".search-close-button").hide();
 }
 
 function login(){

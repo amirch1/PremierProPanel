@@ -326,3 +326,17 @@ ul::-webkit-scrollbar-thumb {
     font-size: 18px;
     font-weight: bold;
 }
+
+.search-close-button{
+   
+    position: absolute;
+    right: 8px;
+    background: transparent;
+    font-size: 16px;
+    border: none;
+}
+.search-close-button:focus { 
+    outline:0 !important; 
+}
+
+
