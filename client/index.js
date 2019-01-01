@@ -27,26 +27,46 @@ initApp();
 
 function initApp(){
     // check if "download" and "export" folders exist and create them if not
-    const extensionBasePAth = csInterface.getSystemPath(SystemPath.EXTENSION);
-    if (!pathExists(extensionBasePAth + '/downloads/')){
-        createFolder(extensionBasePAth + '/downloads');
-    }
-    if (!pathExists(extensionBasePAth + '/export/')){
-        createFolder(extensionBasePAth + '/export');
+    try{
+        const extensionBasePAth = csInterface.getSystemPath(SystemPath.EXTENSION);
+        if (!pathExists(extensionBasePAth + '/downloads/')){
+            createFolder(extensionBasePAth + '/downloads');
+        }
+        if (!pathExists(extensionBasePAth + '/export/')){
+            createFolder(extensionBasePAth + '/export');
+        }
+    } catch(e){
+        console.log("You are probably in browser mode")
     }
     $('#loader').click(function( event ) {
         event.stopImmediatePropagation();
         event.preventDefault();
     });
+    
     $("#search").on('keyup', function (e) {
-      if($("#search").val()){
-        $(".search-close-button").show();
-      }
+        if($("#search").val()){
+            $(".search-close-button").show();
+        }else{
+            $(".search-close-button").hide();
+        }
         if (e.keyCode == 13) {
+            $(".active-tasks-checkbox").prop("checked", false);
             listEntries();
         }
     });
     $(".search-close-button").click( function (e) {
+        clearSearch();
+    })
+    .hide();
+
+    // active-task checkbox
+    $(".active-tasks-checkbox").change( function (e) {
+       if($(e.currentTarget).is(":checked")){
+           listEntriesWithCustomMetadata();
+       }else{
+            listEntries();
+       }
+    })
       clearSearch();
     }).hide();
 
@@ -94,7 +114,7 @@ function login(){
 function listEntries(){
     setStatus("Loading Entries..."); // set status
     var search = $("#search").val();
-    $("ul").empty();
+    $("#entries").empty();
     $.post( "https://www.kaltura.com/api_v3/service/baseentry/action/list", {
         format: 1,
         ks: ks,
@@ -116,6 +136,51 @@ function listEntries(){
         resetStatus();
     });
 }
+
+function listEntriesWithCustomMetadata(){
+    $("#search").val("");
+    $(".search-close-button").hide();
+    var postObject = {
+        format: 1,
+        ks: ks,
+        searchParams: {
+            objectType: "KalturaESearchEntryParams",
+            searchOperator : {
+                objectType : "KalturaESearchEntryOperator",
+                operator: 1,
+                searchItems: {
+                    item1 : {
+                        objectType : "KalturaESearchEntryMetadataItem",
+                        itemType : 4,
+                        metadataProfileId : 11011282,
+                        range : {
+                            objectType : "KalturaESearchRange"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    $.post( "https://www.kaltura.com/api_v3/service/elasticsearch_esearch/action/searchEntry", postObject , 
+    function( data ) {
+        $("#entries").empty();
+        var entries = data.objects;
+        for (var i=0; i<entries.length; i++){
+            var entry = data.objects[i].object;
+            var metadataText = data.objects[i].itemsData[0].items[0].valueText;
+           $("#entries").append('<li>'+
+                                    '<img src="'+entry.thumbnailUrl+'"/>'+
+                                    '<div class="active-box">'+
+                                        '<div class="entryName">'+entry.name+'</div>'+
+                                        '<div class="task-text">'+metadataText+'</div>'+
+                                    '</div>'+
+                                    '<button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\',\''+entry.thumbnailUrl+'\')">Edit</button>'+
+                                '</li>');
+        }
+    })
+}
+
 
 function download(src, name, entryId, thumbnailUrl){
     // update UI
