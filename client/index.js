@@ -14,13 +14,13 @@ initApp();
 
 function initApp(){
     // check if "download" and "export" folders exist and create them if not
-    // const extensionBasePAth = csInterface.getSystemPath(SystemPath.EXTENSION);
-    // if (!pathExists(extensionBasePAth + '/downloads/')){
-    //     createFolder(extensionBasePAth + '/downloads');
-    // }
-    // if (!pathExists(extensionBasePAth + '/export/')){
-    //     createFolder(extensionBasePAth + '/export');
-    // }
+    const extensionBasePAth = csInterface.getSystemPath(SystemPath.EXTENSION);
+    if (!pathExists(extensionBasePAth + '/downloads/')){
+        createFolder(extensionBasePAth + '/downloads');
+    }
+    if (!pathExists(extensionBasePAth + '/export/')){
+        createFolder(extensionBasePAth + '/export');
+    }
     $('#loader').click(function( event ) {
         event.stopImmediatePropagation();
         event.preventDefault();
