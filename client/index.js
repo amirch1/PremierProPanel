@@ -1,6 +1,7 @@
 var csInterface = new CSInterface();
 var ks = '';
 var uploadTokenId = '';
+var originalEntryId = '';
 var entryId = '';
 
 $('#login-button').on('click', login);
@@ -14,6 +15,9 @@ $('#uploadCurrentEntry').on('click', function(){
     } else {
         $('#update').hide();
         $('#editEntry').hide();
+        $("#comments").text($("#commentsArea").val());
+        $('#uploadButtonLabel').text("Uploading");
+        $('#upload-done-button').addClass("disabled");
         $('#uploading').show();
         setTimeout(()=>{
             exportClip();
@@ -22,6 +26,8 @@ $('#uploadCurrentEntry').on('click', function(){
     }
 });
 $('#updateOpenEntry').on('click', function(){
+    $('input[type=radio][name=update]').prop( "checked", true );
+    $("#commentsArea").val('')
     $('#update').show();
 });
 $('#cancel-edit-button').on('click', function(){
@@ -190,6 +196,7 @@ function listEntriesWithCustomMetadata(){
 
 
 function download(src, name, entryId, thumbnailUrl){
+    originalEntryId = entryId;
     // update UI
     setStatus("Downloading Entry...");
     $("#entriesList").hide();
@@ -254,6 +261,9 @@ function download(src, name, entryId, thumbnailUrl){
                     var flavor = flavours[i];
                     if (flavor.isOriginal == 1){
                         format = flavor.fileExt;
+                        if (format === "noex"){
+                            format = "mp4";
+                        }
                         break;
                     }
                 }
@@ -289,7 +299,7 @@ function upload() {
         format: 1,
         ks: ks
     }, function (token) {
-        uploadTokenId = token.id;
+        uploadTokenId = token.id;alert(uploadTokenId);
         continueUpload();
     });
 
@@ -307,6 +317,9 @@ function upload() {
             entryId = entry.id;
             continueUpload();
         });
+    } else {
+        entryId = originalEntryId;
+        continueUpload();
     }
 }
 // continue upload
@@ -341,6 +354,7 @@ function continueUpload(){
 }
 
 function updateEntry(){
+    alert("updading entry "+ entryId+ " with upload token: "+uploadTokenId);
     // update entry
     $.post("https://www.kaltura.com/api_v3/service/media/action/updateContent", {
         format: 1,
