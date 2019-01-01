@@ -42,6 +42,7 @@ function initApp(){
 function clearSearch(){
   $("#search").val("");
   $(".search-close-button").hide();
+  listEntries();
 }
 
 function login(){
