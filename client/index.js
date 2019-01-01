@@ -299,7 +299,7 @@ function upload() {
         format: 1,
         ks: ks
     }, function (token) {
-        uploadTokenId = token.id;alert(uploadTokenId);
+        uploadTokenId = token.id;
         continueUpload();
     });
 
@@ -354,7 +354,6 @@ function continueUpload(){
 }
 
 function updateEntry(){
-    alert("updading entry "+ entryId+ " with upload token: "+uploadTokenId);
     // update entry
     $.post("https://www.kaltura.com/api_v3/service/media/action/updateContent", {
         format: 1,
@@ -374,9 +373,24 @@ function updateEntry(){
             ]
         }
     }, function (result) {
-        $('#uploadButtonLabel').text("Done");
-        $('#upload-done-button').removeClass("disabled");
-        resetStatus();
+        // update metadata if needed
+        if ($('#commentsArea').val().length > 0){
+            $.post( "https://www.kaltura.com/api_v3/service/metadata_metadata/action/add", {
+                ks: ks,
+                metadataProfileId: 11011282,
+                objectType: 1,
+                objectId: entryId,
+                xmlData: '<metadata><Comments>' + $('#commentsArea').val() + '</Comments></metadata>'
+            }, function( data ) {
+                $('#uploadButtonLabel').text("Done");
+                $('#upload-done-button').removeClass("disabled");
+                resetStatus();
+            });
+        } else {
+            $('#uploadButtonLabel').text("Done");
+            $('#upload-done-button').removeClass("disabled");
+            resetStatus();
+        }
     });
 }
 
