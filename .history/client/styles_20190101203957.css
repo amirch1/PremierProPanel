@@ -134,7 +134,7 @@ input[type=radio] {
     border-top: 3px solid black;
 }
 #header .title{
-    color: #afaeae;
+    font-size: 18px;
     font-weight: 700;
     margin-left: 8px;
     position: absolute;
