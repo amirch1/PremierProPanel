@@ -217,7 +217,9 @@ ul li button:hover {
     font-size: 16px;
     font-weight: 700;
 }
+.task-text,
 .entryName{
+    font-weight: normal;
     margin-left: 12px;
 }
 .entriesList {
@@ -328,7 +330,6 @@ ul::-webkit-scrollbar-thumb {
 }
 
 .search-close-button{
-   
     position: absolute;
     right: 8px;
     background: transparent;
@@ -338,5 +339,19 @@ ul::-webkit-scrollbar-thumb {
 .search-close-button:focus { 
     outline:0 !important; 
 }
+.task-text{
+    color: #AAAAAA;
+    font-size: 14px;
+    font-weight: normal;
+}
+.active-box{
+    display: inline-block;
+    height: 100%;
+}
+.active-box .entryName{
+    padding-top: 12px;
 
-
+}
+.active-box .task-text{
+    padding-top: 4px;
+}

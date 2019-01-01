@@ -14,12 +14,16 @@ initApp();
 
 function initApp(){
     // check if "download" and "export" folders exist and create them if not
-    const extensionBasePAth = csInterface.getSystemPath(SystemPath.EXTENSION);
-    if (!pathExists(extensionBasePAth + '/downloads/')){
-        createFolder(extensionBasePAth + '/downloads');
-    }
-    if (!pathExists(extensionBasePAth + '/export/')){
-        createFolder(extensionBasePAth + '/export');
+    try{
+        const extensionBasePAth = csInterface.getSystemPath(SystemPath.EXTENSION);
+        if (!pathExists(extensionBasePAth + '/downloads/')){
+            createFolder(extensionBasePAth + '/downloads');
+        }
+        if (!pathExists(extensionBasePAth + '/export/')){
+            createFolder(extensionBasePAth + '/export');
+        }
+    } catch(e){
+        console.log("You are probably in browser mode")
     }
     $('#loader').click(function( event ) {
         event.stopImmediatePropagation();
@@ -33,6 +37,7 @@ function initApp(){
             $(".search-close-button").hide();
         }
         if (e.keyCode == 13) {
+            $(".active-tasks-checkbox").prop("checked", false);
             listEntries();
         }
     });
@@ -49,9 +54,6 @@ function initApp(){
             listEntries();
        }
     })
-        
-
-
 }
 
 function clearSearch(){
@@ -112,7 +114,9 @@ function listEntries(){
 }
 
 function listEntriesWithCustomMetadata(){
-    $.post( "https://www.kaltura.com/api_v3/service/elasticsearch_esearch/action/searchEntry", {
+    $("#search").val("");
+    $(".search-close-button").hide();
+    var postObject = {
         format: 1,
         ks: ks,
         searchParams: {
@@ -129,16 +133,26 @@ function listEntriesWithCustomMetadata(){
                             objectType : "KalturaESearchRange"
                         }
                     }
-
+                }
             }
         }
-        }
-    }, function( data ) {
+    }
+
+    $.post( "https://www.kaltura.com/api_v3/service/elasticsearch_esearch/action/searchEntry", postObject , 
+    function( data ) {
         $("#entries").empty();
         var entries = data.objects;
         for (var i=0; i<entries.length; i++){
             var entry = data.objects[i].object;
-           $("#entries").append('<li><img src="'+entry.thumbnailUrl+'"/><span class="entryName">'+entry.name+'</span><button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\',\''+entry.thumbnailUrl+'\')">Edit</button></li>');
+            var metadataText = data.objects[i].itemsData[0].items[0].valueText;
+           $("#entries").append('<li>'+
+                                    '<img src="'+entry.thumbnailUrl+'"/>'+
+                                    '<div class="active-box">'+
+                                        '<div class="entryName">'+entry.name+'</div>'+
+                                        '<div class="task-text">'+metadataText+'</div>'+
+                                    '</div>'+
+                                    '<button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\',\''+entry.thumbnailUrl+'\')">Edit</button>'+
+                                '</li>');
         }
     })
 }
