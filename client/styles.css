@@ -142,9 +142,8 @@ input[type=radio] {
     margin-left: 12px;
 }
 #header .username{
-    margin-right: 16px;
     margin-left: 8px;
-    color: #666666;
+    color: #AAAAAA;
     cursor: pointer;
 }
 #header .username:hover{
@@ -356,4 +355,24 @@ ul::-webkit-scrollbar-thumb {
 }
 .active-box .task-text{
     padding-top: 4px;
+}
+.user-menu{
+    color: white;
+    padding-left: 4px;
+    padding-right: 8px;
+    padding-top: 10px;
+    cursor: pointer;
+    transform: scaleY(0.7);
+}
+.logoff{
+    position: absolute;
+    top: 40px;
+    right: 12px;
+    border:solid  1px  #AAAAAA ;
+    border-radius: 3px;
+    padding: 5px 24px;
+    background-color: #222222;
+    text-decoration: underline;
+    cursor: pointer;
+    
 }

@@ -33,12 +33,32 @@ $('#updateOpenEntry').on('click', function(){
 $('#cancel-edit-button').on('click', function(){
     $('#update').hide();
 });
+$('.user-menu').on('click', function(){
+    showLogoff();
+});
+
 $('#upload-done-button').on('click', function(){
     $('#uploading').hide();
     $('#entriesList').show();
 });
+$('.username').hide();
+$('.logoff').hide()
+.on('click', function(){
+    // LOG-OFF - refresh;
+    // ks = "" and close all panel and show login screen 
+    ks = ""; 
+    const pannelsToClose = ["uploading","update","statusContainer","editEntry","entriesList","header","log-off"];
+    pannelsToClose.forEach(element => {
+        $('#'+element).hide();
+    });
+    $('#login').show();
+})
+
 
 initApp();
+function showLogoff(){
+    $('.logoff').show();
+}
 
 function initApp(){
     // check if "download" and "export" folders exist and create them if not
@@ -99,6 +119,15 @@ function clearSearch(){
   listEntries();
 }
 
+function getUsername(ks){
+    $.post( "https://www.kaltura.com/api_v3/service/user/action/getByLoginId", {
+      ks: ks,
+      format: 1,
+      loginId: $('#user').val()
+  }, function( data ) {
+    $('.username').show().text(data.fullName);
+  })
+}
 function login(){
   $('#login-button').addClass("disabled");
   const user = $('#user').val();
@@ -111,7 +140,8 @@ function login(){
       if (data.message){
           alert(data.message); // login error
           $('#login-button').removeClass("disabled");
-      } else {
+        } else {
+          getUsername(data);
           $('#login-button').removeClass("disabled");
           $("#login").hide();
           $("#header").show();
