@@ -510,8 +510,9 @@ function createFolder(path)
     const res = window.cep.fs.makedir(path);
 }
 function setStatus(status){
-    $('#status').text(status);
+    $('#status').text(status).addClass("working");
 }
 function resetStatus(status){
-    $('#status').text('Idle');
+    $('#status').text('Idle').removeClass("working");
+    ;
 }

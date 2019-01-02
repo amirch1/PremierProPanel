@@ -148,7 +148,7 @@ input[type=radio] {
 }
 #header .username{
     margin-left: 8px;
-    color: #AAAAAA;
+    color: #d0cece;
     cursor: pointer;
 }
 #header .username:hover{
@@ -173,6 +173,9 @@ input[type=radio] {
 .statusContainer .label{
     font-size: 15px;
     font-weight: bold;
+}
+.statusContainer #status.working{
+    color: #F8A61A;
 }
 .statusContainer #status{
     font-size: 15px;
@@ -205,7 +208,8 @@ ul li img{
 }
 .search{
     font-weight: normal !important;
-    margin-right: 17px !important;
+    margin-right: 17px important;
+    cursor: default !important;
 }
 .search,
 ul li button{
@@ -301,6 +305,32 @@ ul::-webkit-scrollbar-thumb {
     width: 280px;
     height: 160px;
 }
+
+#editEntry.panel .buttons{
+    bottom: 50px;
+    padding-top: 25px;
+    height: 26px;
+}
+#upload.floater .buttons{
+    bottom: 0px;
+    padding-top: 0px;
+    height: 60px;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+#update .buttons,
+#upload .buttons,
+#editEntry .buttons
+{
+    position: absolute;
+    bottom: 30px;
+    border-top: solid 1px #666666;
+    margin-left: -30px;
+    height: 16px;
+    padding-top: 32px;
+}
+
 #editEntry .buttons, #update .buttons, #upload .buttons, #uploading .buttons{
     display: flex;
     margin-top: 50px;
@@ -357,10 +387,12 @@ ul::-webkit-scrollbar-thumb {
 
 .search-close-button{
     position: absolute;
-    right: 8px;
+    right: 12px;
+    color: #cccccc;
     background: transparent;
     font-size: 16px;
     border: none;
+    cursor: pointer;
 }
 .search-close-button:focus { 
     outline:0 !important; 
@@ -389,16 +421,18 @@ ul::-webkit-scrollbar-thumb {
     cursor: pointer;
     transform: scaleY(0.7);
 }
+.logoff:hover{
+    text-decoration: underline;
+}    
 .logoff{
+    color: #e6e6e6;
     font-size: 13px;
     position: absolute;
     top: 48px;
     right: 12px;
-    border:solid  1px  #AAAAAA ;
+    border:solid  1px  #8e8e8e ;
     border-radius: 3px;
     padding: 5px 24px;
     background-color: #222222;
-    text-decoration: underline;
     cursor: pointer;
-    
 }
