@@ -327,7 +327,7 @@ function download(src, name, entryId, thumbnailUrl){
     }, function( response ) {
         if (response.objects.length){
             const metadata = response.objects[0].xml;
-            const message = metadata.substring(metadata.indexOf('<Comments>')+10, metadata.indexOf('</Comments'));
+            const message = metadata.substring(metadata.indexOf('<Tasks>')+7, metadata.indexOf('</Tasks'));
             $('#task').text(message);
         }
     });
