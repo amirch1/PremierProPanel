@@ -426,3 +426,20 @@ ul::-webkit-scrollbar-thumb {
     background-color: #222222;
     cursor: pointer;
 }
+.loginPanel.alert{
+    top: 37%;
+    height: 150px; 
+}
+.button.alert{
+    width: 150px;
+}
+#alert-layer{
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(255,255,255,0.3);
+}

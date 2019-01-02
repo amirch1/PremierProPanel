@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,700,900">
 </head>
 <body>
-    <div id="login" class="panel">
+    
+    <div id="login" class="panel" styled="display: none">
         <div class="loginPanel">
             <div class="title">
                 <img src="assets/logo.gif">
@@ -18,14 +19,14 @@
             <input class="loginInput" id="user" type="text" placeholder="User Name" value="amir.chervinsky@kaltura.com">
             <input class="loginInput" id="pass" type="password" placeholder="Password" value="Kaltura!1">
             <div style="display: flex; margin-top: 20px; color: #666666">
-                <label><input type="checkbox" name="remember" value="remember" checked>Remember Me</label>
-                <span class="link" style="margin-left: 160px;">Forgot Password?</span>
-            </div>
-            <div class="button" id="login-button">
-                <span align="center">Login</span>
+                    <label><input type="checkbox" name="remember" value="remember" checked>Remember Me</label>
+                    <span class="link" style="margin-left: 160px;">Forgot Password?</span>
+                </div>
+                <div class="button" id="login-button">
+                    <span >Login</span>
+                </div>
             </div>
         </div>
-    </div>
 
     <div id="header" style="display: none">
         <img width="173px" height="44px" style="margin-top:4px" src="assets/logo1.gif?4">
@@ -150,6 +151,17 @@
                 <div id="upload-done-button" class="button disabled">
                     <span id="uploadButtonLabel">Uploading</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="alert-layer" class="panel">
+        <div class="loginPanel alert">
+            <br>
+            <div class="alert-text">
+            </div>
+            <div class="button alert">
+                <span>OK</span>
             </div>
         </div>
     </div>

@@ -11,11 +11,11 @@ $('#download-button').on('click', download);
 $('#close-edit-button').on('click', closeEdit);
 $('#main-upload').on('click', function(){
     if (directUpload === '' && $('input[type=radio][name=upload]:checked').val() === "existing"){
-        alert("Please Select a File");
+        showAlert("Please Select a File");
         return;
     }
     if ($('#uploadEntryName').val().length === 0){
-        alert("Please Enter an Entry Name.");
+        showAlert("Please Enter an Entry Name.");
     } else {
         mainUpload = true;
         $('#upload').hide();
@@ -43,9 +43,14 @@ $('#main-upload').on('click', function(){
 
     }
 });
+$('#alert-layer').hide();
+$('.button.alert').on('click', function(){
+    $('#alert-layer').hide();
+})
+
 $('#uploadCurrentEntry').on('click', function(){
     if ($('input[type=radio][name=update]:checked').val() === "create" && $('#updateEntryName').val().length === 0){
-        alert("Please Enter an Entry Name.");
+        showAlert("Please Enter an Entry Name.");
     } else {
         directUpload = '';
         mainUpload = false;
@@ -204,7 +209,7 @@ function login(){
       password: pass
   }, function( data ) {
       if (data.message){
-          alert(data.message); // login error
+        showAlert(data.message); // login error
           $('#login-button').removeClass("disabled");
         } else {
           getUsername(data);
@@ -564,4 +569,9 @@ function setStatus(status){
 function resetStatus(status){
     $('#status').text('Idle').removeClass("working");
     ;
+}
+
+function showAlert(t){
+    $('.alert-text').text(t);
+    $('#alert-layer').show();
 }
