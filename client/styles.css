@@ -446,6 +446,12 @@ ul::-webkit-scrollbar-thumb {
     bottom: 0;
     background:rgba(255,255,255,0.3);
 }
+
+
+a {
+    color: #FFFFFF;
+    text-decoration: underline;  
+}
 #alert-layer .button{
     text-align: center;
     width: 80px;
