@@ -100,12 +100,12 @@ input[type=radio] {
     font-size: 16px;
     padding-left: 8px;
 }
-.loginPanel .link{
+.link{
     font-size: 16px;
     color: #666666;
     cursor: pointer;
 }
-.loginPanel .link:hover{
+.link:hover{
     text-decoration: underline;
 }
 .loginPanel>.button{
@@ -353,21 +353,6 @@ ul::-webkit-scrollbar-thumb {
     line-height: 32px;
     font-size: 14px;
     font-weight: bold;
-}
-.mainUpload .details{
-    display: none !important;
-}
-.uploadAnimation{
-    display: none;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-.mainUpload .uploadAnimation {
-    display: flex;
-}
-.mainUpload .panelTitle {
-    margin-bottom: 0px;
 }
 
 /* preloader panel */

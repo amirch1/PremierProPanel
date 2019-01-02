@@ -33,7 +33,7 @@
             <span>Upload</span>
         </div>
         <img src="assets/user.gif">
-        <div></div> <span class="username">user name</span><span class="user-menu">˅</span></div>
+        <div></div> <span class="username"></span><span class="user-menu">˅</span></div>
         <div class="logoff" id="log-off">
             <span class="logoff-text">Log Out</span>
         </div>
@@ -106,7 +106,10 @@
     <div id="upload" class="floater" style="display: none">
         <div class="loginPanel" style="align-items: baseline; padding: 30px">
             <span style="font-size: 18px; font-weight: bold; margin-bottom: 30px">Upload Entry</span>
-            <label style="margin-bottom: 16px; cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" value="existing">Existing Video File</label>
+            <div style="display: flex">
+                <label style="margin-bottom: 16px; cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" value="existing">Existing Video File</label>
+                <span class="link" style="margin-left: 24px">Select File</span>
+            </div>
             <label style="cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" checked value="sequence">Current Sequence</label>
             <span style="margin-top: 23px; font-weight: bold">Entry Name:</span>
             <input id="uploadEntryName" style="font-size: 15px; margin-top: 12px; border-radius: 3px; overflow: hidden; width: 160px; height: 32px" type="text" placeholder="Entry Name" value="">
@@ -135,9 +138,6 @@
                     <div><label>Created: </label><span id="entryCreated"></span></div>
                     <div><label>Updated: </label><span id="entryUpdated"></span></div>
                 </div>
-            </div>
-            <div class="uploadAnimation">
-                <img src="assets/loading.gif">
             </div>
 
             <div style="margin-top: 20px">
