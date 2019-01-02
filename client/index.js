@@ -94,7 +94,7 @@ $('.username').hide();
 $('.logoff').hide()
 .on('click', function(){
     ks = ""; 
-    const pannelsToClose = ["uploading","update","statusContainer","editEntry","entriesList","header","log-off","upload"];
+    const pannelsToClose = ["uploading","update","statusContainer","editEntry","entriesList","header","log-off","upload","statusContainer"];
     pannelsToClose.forEach(element => {
         $('#'+element).hide();
     });
