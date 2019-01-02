@@ -287,6 +287,7 @@ function listEntriesWithCustomMetadata(){
             var metadataItems = data.objects[i].itemsData[0].items;
             var taskText = "";
             var jiraLink = "";
+            var jiraStatus = "";
             for(var j = 0 ;j<metadataItems.length;j++ ){
                 if(JSON.stringify(metadataItems[j]).indexOf("'JiraLink'") > -1){
                     // has Jira link !
@@ -299,12 +300,16 @@ function listEntriesWithCustomMetadata(){
                 if(JSON.stringify(metadataItems[j]).indexOf("'Comments'") > -1){
                     // This is Comments
                 }
+                if(JSON.stringify(metadataItems[j]).indexOf("'JiraIssueStatus'") > -1){
+                    // This is status
+                    jiraStatus = metadataItems[j].valueText;
+                }
             }
            var jiraHref = ""; 
            if(jiraLink){
             jiraHref = '<a class="jira-url" data-url="'+jiraLink+'" href="#" > See in Jira </a>';
            } 
-           if(jiraHref){
+           if(jiraHref && jiraStatus != "Done"){
                $("#entries").append('<li>'+
                                         '<img src="'+entry.thumbnailUrl+'"/>'+
                                         '<div class="active-box">'+
