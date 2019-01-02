@@ -19,6 +19,7 @@ $('#main-upload').on('click', function(){
             $('#editEntry').hide();
             $("#comments").text($("#uploadCommentsArea").val());
             $('#uploadButtonLabel').text("Uploading");
+            $('#uploading .buttons').hide();
             $('#upload-done-button').addClass("disabled");
             closeAllPlanels();
             $('#uploading').show();
@@ -41,7 +42,8 @@ $('#uploadCurrentEntry').on('click', function(){
         $('#update').hide();
         $('#editEntry').hide();
         $("#comments").text($("#commentsArea").val());
-        $('#uploadButtonLabel').text("Uploading");
+        $('#uploadButtonLabel').text("Uploading").hide();
+        $('#uploading .buttons').hide();
         $('#upload-done-button').addClass("disabled");
         $('#uploading').show();
         setTimeout(()=>{
@@ -450,12 +452,14 @@ function updateEntry(){
                 objectId: entryId,
                 xmlData: '<metadata><Comments>' + xml + '</Comments></metadata>'
             }, function( data ) {
-                $('#uploadButtonLabel').text("Done");
+                $('#uploadButtonLabel').text("Done").show();
+                $('#uploading .buttons').show();
                 $('#upload-done-button').removeClass("disabled");
                 resetStatus();
             });
         } else {
-            $('#uploadButtonLabel').text("Done");
+            $('#uploadButtonLabel').text("Done").show();
+            $('#uploading .buttons').show();
             $('#upload-done-button').removeClass("disabled");
             resetStatus();
         }
