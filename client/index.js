@@ -302,9 +302,9 @@ function listEntriesWithCustomMetadata(){
             }
            var jiraHref = ""; 
            if(jiraLink){
-            jiraHref = '<a href="'+jiraLink+'" target="_blank" > See in Jira </a>';
+            jiraHref = '<a class="jira-url" data-url="'+jiraLink+'" href="#" > See in Jira </a>';
            } 
-           if(taskText){
+           if(jiraHref){
                $("#entries").append('<li>'+
                                         '<img src="'+entry.thumbnailUrl+'"/>'+
                                         '<div class="active-box">'+
@@ -315,6 +315,12 @@ function listEntriesWithCustomMetadata(){
                                     '</li>');
            }
         }
+
+        $(".jira-url").on("click" , function(){
+            csInterface.openURLInDefaultBrowser($(this).attr("data-url"));
+        })
+        
+
     })
 }
 
