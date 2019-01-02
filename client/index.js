@@ -45,13 +45,15 @@ $('#upload-done-button').on('click', function(){
     $('#uploading').hide();
     $('#entriesList').show();
 });
+$('#main-upload-button').on('click', function(){
+    closeOpenPanels();
+    $('#upload').show();
+});
 $('.username').hide();
 $('.logoff').hide()
 .on('click', function(){
-    // LOG-OFF - refresh;
-    // ks = "" and close all panel and show login screen 
     ks = ""; 
-    const pannelsToClose = ["uploading","update","statusContainer","editEntry","entriesList","header","log-off"];
+    const pannelsToClose = ["uploading","update","statusContainer","editEntry","entriesList","header","log-off","upload"];
     pannelsToClose.forEach(element => {
         $('#'+element).hide();
     });
@@ -463,6 +465,12 @@ function exportClip() {
     resetStatus();
 }
 
+function closeOpenPanels(){
+    const pannelsToClose = ["uploading","update","editEntry","entriesList","log-off","upload"];
+    pannelsToClose.forEach(element => {
+        $('#'+element).hide();
+    });
+}
 /* utils */
 function pathExists(path)
 {

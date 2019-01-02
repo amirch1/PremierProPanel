@@ -30,7 +30,7 @@
     <div id="header" style="display: none">
         <img width="173px" height="47px" src="assets/logo.gif">
         <span class="title">Creator Pro</span>
-        <div class="button" style="margin-left: auto">
+        <div id="main-upload-button" class="button" style="margin-left: auto">
             <span>Upload</span>
         </div>
         <img src="assets/user.gif">
@@ -99,6 +99,26 @@
                 </div>
                 <div id="uploadCurrentEntry" class="button">
                     <span>Update</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="upload" class="floater" style="display: none">
+        <div class="loginPanel" style="align-items: baseline; padding: 30px">
+            <span style="font-size: 18px; font-weight: bold; margin-bottom: 30px">Upload Entry</span>
+            <label style="margin-bottom: 16px; cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" value="existing">Existing Video File</label>
+            <label style="cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" checked value="sequence">Current Sequence</label>
+            <span style="margin-top: 40px; font-weight: bold">Entry Name:</span>
+            <input id="uploadEntryName" style="font-size: 15px; margin-top: 12px; border-radius: 3px; overflow: hidden; width: 160px; height: 32px" type="text" placeholder="Entry Name" value="">
+            <span style="margin-top: 20px; font-weight: bold">Comments:</span>
+            <textarea id="commentsArea" style="width: 380px; height: 70px; margin-top: 12px"></textarea>
+            <div class="buttons">
+                <div id="cancel-edit-button" class="button">
+                    <span>Cancel</span>
+                </div>
+                <div id="uploadCurrentEntry" class="button">
+                    <span>Upload</span>
                 </div>
             </div>
         </div>
