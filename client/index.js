@@ -284,14 +284,36 @@ function listEntriesWithCustomMetadata(){
         for (var i=0; i<entries.length; i++){
             var entry = data.objects[i].object;
             var metadataText = data.objects[i].itemsData[0].items[0].valueText;
-           $("#entries").append('<li>'+
-                                    '<img src="'+entry.thumbnailUrl+'"/>'+
-                                    '<div class="active-box">'+
-                                        '<div class="entryName">'+entry.name+'</div>'+
-                                        '<div class="task-text">'+metadataText+'</div>'+
-                                    '</div>'+
-                                    '<button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\',\''+entry.thumbnailUrl+'\')">Edit</button>'+
-                                '</li>');
+            var metadataItems = data.objects[i].itemsData[0].items;
+            var taskText = "";
+            var jiraLink = "";
+            for(var j = 0 ;j<metadataItems.length;j++ ){
+                if(JSON.stringify(metadataItems[j]).indexOf("'JiraLink'") > -1){
+                    // has Jira link !
+                    jiraLink = metadataItems[j].valueText;
+                }
+                if(JSON.stringify(metadataItems[j]).indexOf("'Tasks'") > -1){
+                    // This is task
+                    taskText = metadataItems[j].valueText;
+                }
+                if(JSON.stringify(metadataItems[j]).indexOf("'Comments'") > -1){
+                    // This is Comments
+                }
+            }
+           var jiraHref = ""; 
+           if(jiraLink){
+            jiraHref = '<a href="'+jiraLink+'" target="_blank" > See in Jira </a>';
+           } 
+           if(taskText){
+               $("#entries").append('<li>'+
+                                        '<img src="'+entry.thumbnailUrl+'"/>'+
+                                        '<div class="active-box">'+
+                                            '<div class="entryName">'+entry.name+'</div>'+
+                                            '<div class="task-text">'+metadataText+" &nbsp; &nbsp;&nbsp;&nbsp;" + jiraHref+'</div>'+
+                                        '</div>'+
+                                        '<button onclick="download(\''+entry.downloadUrl+'\',\''+entry.name+'\',\''+entry.id+'\',\''+entry.thumbnailUrl+'\')">Edit</button>'+
+                                    '</li>');
+           }
         }
     })
 }
