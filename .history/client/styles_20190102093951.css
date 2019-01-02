@@ -117,13 +117,12 @@ input[type=radio] {
     text-align: center;
     cursor: pointer;
 }
-.loginPanel>.button:hover{
+.loginPanel .button:hover{
     background-color: #f8970e;
 }
-.loginPanel>.button span{
+.loginPanel .button span{
     line-height: 42px;
     font-weight: 700;
-    font-size: 16px;
 }
 /* header */
 #header{
@@ -203,11 +202,6 @@ ul li img{
     overflow: hidden;
     margin-left: 12px;
 }
-.search{
-    font-weight: normal !important;
-    margin-right: 17px !important;
-}
-.search,
 ul li button{
     margin-left: auto;
     margin-right: 12px;
@@ -301,20 +295,20 @@ ul::-webkit-scrollbar-thumb {
     width: 280px;
     height: 160px;
 }
-#editEntry .buttons, #update .buttons, #upload .buttons, #uploading .buttons{
+#editEntry .buttons, #update .buttons, #uploading .buttons{
     display: flex;
     margin-top: 50px;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
-#editEntry .button, #update .button, #upload .button, #uploading .button{
+#editEntry .button, #update .button, #uploading .button{
     width: 120px;
     height: 32px;
     margin-left: 12px;
     margin-right: 12px;
 }
-#editEntry .button span, #update .button span, #upload .button span, #uploading .button span{
+#editEntry .button span, #update .button span, #uploading .button span{
     line-height: 32px;
     font-size: 14px;
     font-weight: bold;
@@ -375,9 +369,8 @@ ul::-webkit-scrollbar-thumb {
     transform: scaleY(0.7);
 }
 .logoff{
-    font-size: 13px;
     position: absolute;
-    top: 48px;
+    top: 40px;
     right: 12px;
     border:solid  1px  #AAAAAA ;
     border-radius: 3px;
