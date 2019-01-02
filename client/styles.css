@@ -314,6 +314,22 @@ ul::-webkit-scrollbar-thumb {
     font-size: 14px;
     font-weight: bold;
 }
+.mainUpload .details{
+    display: none !important;
+}
+.uploadAnimation{
+    display: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mainUpload .uploadAnimation {
+    display: flex;
+}
+.mainUpload .panelTitle {
+    margin-bottom: 0px;
+}
 
 /* preloader panel */
 #loader{

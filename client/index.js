@@ -13,7 +13,15 @@ $('#main-upload').on('click', function(){
         alert("Please Enter an Entry Name.");
     } else {
         mainUpload = true;
+        $('#uploading').addClass("mainUpload");
         if ($('input[type=radio][name=upload]:checked').val() === "sequence"){
+            $('#upload').hide();
+            $('#editEntry').hide();
+            $("#comments").text($("#uploadCommentsArea").val());
+            $('#uploadButtonLabel').text("Uploading");
+            $('#upload-done-button').addClass("disabled");
+            closeAllPlanels();
+            $('#uploading').show();
             setTimeout(()=>{
                 exportClip();
                 upload();
@@ -29,6 +37,7 @@ $('#uploadCurrentEntry').on('click', function(){
         alert("Please Enter an Entry Name.");
     } else {
         mainUpload = false;
+        $('#uploading').removeClass("mainUpload");
         $('#update').hide();
         $('#editEntry').hide();
         $("#comments").text($("#commentsArea").val());
@@ -431,13 +440,15 @@ function updateEntry(){
         }
     }, function (result) {
         // update metadata if needed
-        if ($('#commentsArea').val().length > 0){
+        var xml = mainUpload ? $('#uploadCommentsArea').val() : $('#commentsArea').val();
+        var shouldUpdateMetadata = mainUpload ? $('#uploadCommentsArea').val().length > 0 : $('#commentsArea').val().length > 0;
+        if (shouldUpdateMetadata){
             $.post( "https://www.kaltura.com/api_v3/service/metadata_metadata/action/add", {
                 ks: ks,
                 metadataProfileId: 11011282,
                 objectType: 1,
                 objectId: entryId,
-                xmlData: '<metadata><Comments>' + $('#commentsArea').val() + '</Comments></metadata>'
+                xmlData: '<metadata><Comments>' + xml + '</Comments></metadata>'
             }, function( data ) {
                 $('#uploadButtonLabel').text("Done");
                 $('#upload-done-button').removeClass("disabled");
@@ -483,6 +494,12 @@ function exportClip() {
     resetStatus();
 }
 
+function closeAllPlanels(){
+    const pannelsToClose = ["uploading","update","editEntry","entriesList",,"log-off","upload"];
+    pannelsToClose.forEach(element => {
+        $('#'+element).hide();
+    });
+}
 /* utils */
 function pathExists(path)
 {
