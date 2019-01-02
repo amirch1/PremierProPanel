@@ -10,7 +10,10 @@ $('#login-button').on('click', login);
 $('#download-button').on('click', download);
 $('#close-edit-button').on('click', closeEdit);
 $('#main-upload').on('click', function(){
-    directUpload = '';
+    if (directUpload === '' && $('input[type=radio][name=upload]:checked').val() === "existing"){
+        alert("Please Select a File");
+        return;
+    }
     if ($('#uploadEntryName').val().length === 0){
         alert("Please Enter an Entry Name.");
     } else {
@@ -80,6 +83,7 @@ $('#upload-done-button').on('click', function(){
     $('#entriesList').show();
 });
 $('#main-upload-button').on('click', function(){
+    directUpload = '';
     $('#uploadEntryName').val('');
     $('#uploadCommentsArea').val('');
     $("#selectedFileName").text('');
