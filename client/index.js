@@ -3,16 +3,41 @@ var ks = '';
 var uploadTokenId = '';
 var originalEntryId = '';
 var entryId = '';
+var mainUpload = false;
 
 $('#login-button').on('click', login);
 $('#download-button').on('click', download);
 $('#close-edit-button').on('click', closeEdit);
-$('#upload-button').on('click', upload);
-$('#export-button').on('click', exportClip);
+$('#main-upload').on('click', function(){
+    if ($('#uploadEntryName').val().length === 0){
+        alert("Please Enter an Entry Name.");
+    } else {
+        mainUpload = true;
+        $('#uploading').addClass("mainUpload");
+        if ($('input[type=radio][name=upload]:checked').val() === "sequence"){
+            $('#upload').hide();
+            $('#editEntry').hide();
+            $("#comments").text($("#uploadCommentsArea").val());
+            $('#uploadButtonLabel').text("Uploading");
+            $('#upload-done-button').addClass("disabled");
+            closeAllPlanels();
+            $('#uploading').show();
+            setTimeout(()=>{
+                exportClip();
+                upload();
+            }, 200);
+        } else{
+            alert("select entry!")
+        }
+
+    }
+});
 $('#uploadCurrentEntry').on('click', function(){
     if ($('input[type=radio][name=update]:checked').val() === "create" && $('#updateEntryName').val().length === 0){
         alert("Please Enter an Entry Name.");
     } else {
+        mainUpload = false;
+        $('#uploading').removeClass("mainUpload");
         $('#update').hide();
         $('#editEntry').hide();
         $("#comments").text($("#commentsArea").val());
@@ -46,8 +71,10 @@ $('#upload-done-button').on('click', function(){
     $('#entriesList').show();
 });
 $('#main-upload-button').on('click', function(){
-    closeOpenPanels();
     $('#upload').show();
+});
+$('#cancel-upload-button').on('click', function(){
+    $('#upload').hide();
 });
 $('.username').hide();
 $('.logoff').hide()
@@ -342,14 +369,14 @@ function upload() {
         continueUpload();
     });
 
-    if ($('input[type=radio][name=update]:checked').val() === "create"){
+    if ((!mainUpload && $('input[type=radio][name=update]:checked').val() === "create") || mainUpload){
         // create a new entry
         $.post( "https://www.kaltura.com/api_v3/service/media/action/add", {
             format: 1,
             ks: ks,
             entry: {
                 mediaType: 1,
-                name: $('#updateEntryName').val(),
+                name: mainUpload ? $('#uploadEntryName').val() : $('#updateEntryName').val(),
                 objectType: "KalturaMediaEntry"
             }
         }, function( entry ) {
@@ -413,13 +440,15 @@ function updateEntry(){
         }
     }, function (result) {
         // update metadata if needed
-        if ($('#commentsArea').val().length > 0){
+        var xml = mainUpload ? $('#uploadCommentsArea').val() : $('#commentsArea').val();
+        var shouldUpdateMetadata = mainUpload ? $('#uploadCommentsArea').val().length > 0 : $('#commentsArea').val().length > 0;
+        if (shouldUpdateMetadata){
             $.post( "https://www.kaltura.com/api_v3/service/metadata_metadata/action/add", {
                 ks: ks,
                 metadataProfileId: 11011282,
                 objectType: 1,
                 objectId: entryId,
-                xmlData: '<metadata><Comments>' + $('#commentsArea').val() + '</Comments></metadata>'
+                xmlData: '<metadata><Comments>' + xml + '</Comments></metadata>'
             }, function( data ) {
                 $('#uploadButtonLabel').text("Done");
                 $('#upload-done-button').removeClass("disabled");
@@ -465,8 +494,8 @@ function exportClip() {
     resetStatus();
 }
 
-function closeOpenPanels(){
-    const pannelsToClose = ["uploading","update","editEntry","entriesList","log-off","upload"];
+function closeAllPlanels(){
+    const pannelsToClose = ["uploading","update","editEntry","entriesList",,"log-off","upload"];
     pannelsToClose.forEach(element => {
         $('#'+element).hide();
     });

@@ -112,12 +112,12 @@
             <span style="margin-top: 40px; font-weight: bold">Entry Name:</span>
             <input id="uploadEntryName" style="font-size: 15px; margin-top: 12px; border-radius: 3px; overflow: hidden; width: 160px; height: 32px" type="text" placeholder="Entry Name" value="">
             <span style="margin-top: 20px; font-weight: bold">Comments:</span>
-            <textarea id="commentsArea" style="width: 380px; height: 70px; margin-top: 12px"></textarea>
+            <textarea id="uploadCommentsArea" style="width: 380px; height: 70px; margin-top: 12px"></textarea>
             <div class="buttons">
-                <div id="cancel-edit-button" class="button">
+                <div id="cancel-upload-button" class="button">
                     <span>Cancel</span>
                 </div>
-                <div id="uploadCurrentEntry" class="button">
+                <div id="main-upload" class="button">
                     <span>Upload</span>
                 </div>
             </div>
@@ -126,8 +126,8 @@
 
     <div id="uploading" class="panel">
         <div style="display: flex; flex-direction: column; padding: 30px">
-            <span class="panelTitle">Uploading Entry</span>
-            <div style="display: flex; flex-direction: row; margin-top: 12px">
+            <span class="panelTitle">Uploading To Kaltura</span>
+            <div class="details" style="display: flex; flex-direction: row; margin-top: 12px">
                 <img style="flex: 0 0 auto" id="entryThumbnail">
                 <div class="entryDetails">
                     <div><label>ID: </label><span id="entryId"></span></div>
@@ -137,6 +137,10 @@
                     <div><label>Updated: </label><span id="entryUpdated"></span></div>
                 </div>
             </div>
+            <div class="uploadAnimation">
+                <img src="assets/loading.gif">
+            </div>
+
             <div style="margin-top: 20px">
                 <label style="font-size: 16px; font-weight: bold">Comments:</label><br>
                 <span style="font-size: 16px; font-weight: bold; color: #666666" id="comments"></span>
