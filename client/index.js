@@ -254,6 +254,7 @@ function listEntries(){
 }
 
 function listEntriesWithCustomMetadata(){
+    setStatus("Loading Entries..."); // set status
     $("#search").val("");
     $(".search-close-button").hide();
     var postObject = {
@@ -325,7 +326,7 @@ function listEntriesWithCustomMetadata(){
         $(".jira-url").on("click" , function(){
             csInterface.openURLInDefaultBrowser($(this).attr("data-url"));
         })
-        
+        resetStatus();
 
     })
 }
