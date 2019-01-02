@@ -13,13 +13,18 @@ $('#main-upload').on('click', function(){
         alert("Please Enter an Entry Name.");
     } else {
         mainUpload = true;
-        $('#uploading').addClass("mainUpload");
         if ($('input[type=radio][name=upload]:checked').val() === "sequence"){
             $('#upload').hide();
             $('#editEntry').hide();
             $("#comments").text($("#uploadCommentsArea").val());
+            $("#entryId").text('');
+            $("#entryName").text($('#uploadEntryName').val());
+            $("#entryCreator").text($('.username').text());
+            $("#entryCreated").text(new Date().toString().substr(0,24));
+            $("#entryUpdated").text(new Date().toString().substr(0,24));
             $('#uploadButtonLabel').text("Uploading");
             $('#upload-done-button').addClass("disabled");
+            $("#entryThumbnail").attr('src','assets/upload_video.png');
             closeAllPlanels();
             $('#uploading').show();
             setTimeout(()=>{
@@ -37,7 +42,6 @@ $('#uploadCurrentEntry').on('click', function(){
         alert("Please Enter an Entry Name.");
     } else {
         mainUpload = false;
-        $('#uploading').removeClass("mainUpload");
         $('#update').hide();
         $('#editEntry').hide();
         $("#comments").text($("#commentsArea").val());
@@ -71,6 +75,8 @@ $('#upload-done-button').on('click', function(){
     $('#entriesList').show();
 });
 $('#main-upload-button').on('click', function(){
+    $('#uploadEntryName').val('')
+    $('#uploadCommentsArea').val('')
     $('#upload').show();
 });
 $('#cancel-upload-button').on('click', function(){
@@ -89,6 +95,7 @@ $('.logoff').hide()
 
 
 initApp();
+
 function showLogoff(){
     $('.logoff').show();
 }
@@ -381,6 +388,7 @@ function upload() {
             }
         }, function( entry ) {
             entryId = entry.id;
+            $("#entryId").text(entryId);
             continueUpload();
         });
     } else {
