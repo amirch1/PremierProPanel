@@ -600,10 +600,11 @@ function createFolder(path)
 }
 function setStatus(status){
     $('#status').text(status).addClass("working");
+    $('.loader').show();
 }
 function resetStatus(status){
     $('#status').text('Idle').removeClass("working");
-    ;
+    $('.loader').hide();
 }
 
 function showAlert(t){
