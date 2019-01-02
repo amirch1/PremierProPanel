@@ -4,36 +4,38 @@ var uploadTokenId = '';
 var originalEntryId = '';
 var entryId = '';
 var mainUpload = false;
+var directUpload = '';
 
 $('#login-button').on('click', login);
 $('#download-button').on('click', download);
 $('#close-edit-button').on('click', closeEdit);
 $('#main-upload').on('click', function(){
+    directUpload = '';
     if ($('#uploadEntryName').val().length === 0){
         alert("Please Enter an Entry Name.");
     } else {
         mainUpload = true;
+        $('#upload').hide();
+        $('#editEntry').hide();
+        $("#comments").text($("#uploadCommentsArea").val());
+        $("#entryId").text('');
+        $("#entryName").text($('#uploadEntryName').val());
+        $("#entryCreator").text($('.username').text());
+        $("#entryCreated").text(new Date().toString().substr(0,24));
+        $("#entryUpdated").text(new Date().toString().substr(0,24));
+        $('#uploadButtonLabel').text("Uploading");
+        $('#uploading .buttons').hide();
+        $('#upload-done-button').addClass("disabled");
+        $("#entryThumbnail").attr('src','assets/upload_video.png');
+        closeAllPlanels();
+        $('#uploading').show();
         if ($('input[type=radio][name=upload]:checked').val() === "sequence"){
-            $('#upload').hide();
-            $('#editEntry').hide();
-            $("#comments").text($("#uploadCommentsArea").val());
-            $("#entryId").text('');
-            $("#entryName").text($('#uploadEntryName').val());
-            $("#entryCreator").text($('.username').text());
-            $("#entryCreated").text(new Date().toString().substr(0,24));
-            $("#entryUpdated").text(new Date().toString().substr(0,24));
-            $('#uploadButtonLabel').text("Uploading");
-            $('#uploading .buttons').hide();
-            $('#upload-done-button').addClass("disabled");
-            $("#entryThumbnail").attr('src','assets/upload_video.png');
-            closeAllPlanels();
-            $('#uploading').show();
             setTimeout(()=>{
                 exportClip();
                 upload();
             }, 200);
         } else{
-            alert("select entry!")
+            upload();
         }
 
     }
@@ -42,6 +44,7 @@ $('#uploadCurrentEntry').on('click', function(){
     if ($('input[type=radio][name=update]:checked').val() === "create" && $('#updateEntryName').val().length === 0){
         alert("Please Enter an Entry Name.");
     } else {
+        directUpload = '';
         mainUpload = false;
         $('#update').hide();
         $('#editEntry').hide();
@@ -77,13 +80,16 @@ $('#upload-done-button').on('click', function(){
     $('#entriesList').show();
 });
 $('#main-upload-button').on('click', function(){
-    $('#uploadEntryName').val('')
-    $('#uploadCommentsArea').val('')
+    $('#uploadEntryName').val('');
+    $('#uploadCommentsArea').val('');
+    $("#selectedFileName").text('');
     $('#upload').show();
 });
 $('#cancel-upload-button').on('click', function(){
     $('#upload').hide();
 });
+$('#selectFile').on('click', openSelect);
+
 $('.username').hide();
 $('.logoff').hide()
 .on('click', function(){
@@ -154,6 +160,17 @@ function initApp(){
         }
         else if (this.value == 'create') {
             $('#updateEntryName').removeClass("disabled");
+        }
+    });
+
+    $('input[type=radio][name=upload]').change(function() {
+        if (this.value == 'sequence') {
+            $('#selectFile').addClass("disabled");
+            $('#selectedFileName').text("");
+            directUpload = '';
+        }
+        else if (this.value == 'existing') {
+            $('#selectFile').removeClass("disabled");
         }
     });
 }
@@ -404,6 +421,9 @@ function continueUpload(){
         // read file
         var dir = csInterface.getSystemPath(SystemPath.EXTENSION) + '/export/';
         var uploadFile =dir + 'temp.mp4';
+        if (directUpload !== ''){
+            uploadFile = directUpload;
+        }
         result = window.cep.fs.readFile(uploadFile, window.cep.encoding.Base64);
         var base64Data = result.data;
 
@@ -511,6 +531,19 @@ function closeAllPlanels(){
     pannelsToClose.forEach(element => {
         $('#'+element).hide();
     });
+}
+function openSelect(){
+    var filetypes = new Array();
+    filetypes[0] = "mp4";
+    filetypes[1] = "mov";
+    var result = window.cep.fs.showOpenDialog(false,false,"Selected Video File", "","");
+    if (result.data[0]){
+        directUpload = result.data[0];
+        $("#selectedFileName").text('('+directUpload.substr(directUpload.lastIndexOf('/')+1)+')');
+    } else {
+        directUpload = "";
+        $("#selectedFileName").text('');
+    }
 }
 /* utils */
 function pathExists(path)

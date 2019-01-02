@@ -107,10 +107,11 @@
         <div class="loginPanel" style="align-items: baseline; padding: 30px">
             <span style="font-size: 18px; font-weight: bold; margin-bottom: 30px">Upload Entry</span>
             <div style="display: flex">
-                <label style="margin-bottom: 16px; cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" value="existing">Existing Video File</label>
-                <span class="link" style="margin-left: 24px">Select File</span>
+                <label style="margin-bottom: 16px; cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" checked value="existing">Local Video File</label>
+                <span id="selectFile" class="link" style="margin-left: 24px">Select File</span>
+                <span id="selectedFileName" style="margin-left: 8px"></span>
             </div>
-            <label style="cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" checked value="sequence">Current Sequence</label>
+            <label style="cursor: pointer"><input style="margin-right: 12px; cursor: pointer" type="radio" name="upload" value="sequence">Current Sequence</label>
             <span style="margin-top: 23px; font-weight: bold">Entry Name:</span>
             <input id="uploadEntryName" style="font-size: 15px; margin-top: 12px; border-radius: 3px; overflow: hidden; width: 160px; height: 32px" type="text" placeholder="Entry Name" value="">
             <span style="margin-top: 20px; font-weight: bold">Comments:</span>
