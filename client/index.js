@@ -42,7 +42,7 @@ $('#uploadCurrentEntry').on('click', function(){
         $('#update').hide();
         $('#editEntry').hide();
         $("#comments").text($("#commentsArea").val());
-        $('#uploadButtonLabel').text("Uploading").hide();
+        $('#uploadButtonLabel').text("Uploading");
         $('#uploading .buttons').hide();
         $('#upload-done-button').addClass("disabled");
         $('#uploading').show();
@@ -452,13 +452,13 @@ function updateEntry(){
                 objectId: entryId,
                 xmlData: '<metadata><Comments>' + xml + '</Comments></metadata>'
             }, function( data ) {
-                $('#uploadButtonLabel').text("Done").show();
+                $('#uploadButtonLabel').text("Done");
                 $('#uploading .buttons').show();
                 $('#upload-done-button').removeClass("disabled");
                 resetStatus();
             });
         } else {
-            $('#uploadButtonLabel').text("Done").show();
+            $('#uploadButtonLabel').text("Done");
             $('#uploading .buttons').show();
             $('#upload-done-button').removeClass("disabled");
             resetStatus();
