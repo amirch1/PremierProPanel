@@ -288,6 +288,7 @@ function listEntriesWithCustomMetadata(){
             var metadataItems = data.objects[i].itemsData[0].items;
             var taskText = "";
             var jiraLink = "";
+            var jiraStatus = "";
             for(var j = 0 ;j<metadataItems.length;j++ ){
                 if(JSON.stringify(metadataItems[j]).indexOf("'JiraLink'") > -1){
                     // has Jira link !
@@ -300,12 +301,16 @@ function listEntriesWithCustomMetadata(){
                 if(JSON.stringify(metadataItems[j]).indexOf("'Comments'") > -1){
                     // This is Comments
                 }
+                if(JSON.stringify(metadataItems[j]).indexOf("'JiraIssueStatus'") > -1){
+                    // This is status
+                    jiraStatus = metadataItems[j].valueText;
+                }
             }
            var jiraHref = ""; 
            if(jiraLink){
-            jiraHref = '<a href="'+jiraLink+'" target="_blank" > See in Jira </a>';
+            jiraHref = '<a class="jira-url" data-url="'+jiraLink+'" href="#" > See in Jira </a>';
            } 
-           if(taskText){
+           if(jiraHref && jiraStatus != "Done"){
                $("#entries").append('<li>'+
                                         '<img src="'+entry.thumbnailUrl+'"/>'+
                                         '<div class="active-box">'+
@@ -316,6 +321,12 @@ function listEntriesWithCustomMetadata(){
                                     '</li>');
            }
         }
+
+        $(".jira-url").on("click" , function(){
+            csInterface.openURLInDefaultBrowser($(this).attr("data-url"));
+        })
+        
+
     })
 }
 
