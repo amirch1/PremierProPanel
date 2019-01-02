@@ -553,7 +553,7 @@ function b64toBlob(b64Data, contentType, sliceSize) {
 
 function exportClip() {
     setStatus("Rendering Media...");
-    var outputPresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/Kaltura.epr';
+    var outputPresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/Kaltura_medium.epr';
     var outputPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/export';
     csInterface.evalScript("exportMedia('" + outputPresetPath + "', '" + outputPath + "', '"+ "temp" + "')");
     resetStatus();
