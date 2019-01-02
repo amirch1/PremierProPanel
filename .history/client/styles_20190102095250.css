@@ -376,7 +376,7 @@ ul::-webkit-scrollbar-thumb {
 .logoff{
     font-size: 13px;
     position: absolute;
-    top: 48px;
+    top: 40px;
     right: 12px;
     border:solid  1px  #AAAAAA ;
     border-radius: 3px;

@@ -33,7 +33,7 @@ $('#updateOpenEntry').on('click', function(){
 $('#cancel-edit-button').on('click', function(){
     $('#update').hide();
 });
-$('.user-menu,.username').on('click', function(){
+$('.user-menu').on('click', function(){
     if($('.logoff').is(":visible")){
         hideLogoff()
     }else {

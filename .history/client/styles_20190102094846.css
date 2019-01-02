@@ -202,10 +202,6 @@ ul li img{
     overflow: hidden;
     margin-left: 12px;
 }
-.search{
-    font-weight: normal !important;
-    margin-right: 17px !important;
-}
 .search,
 ul li button{
     margin-left: auto;
@@ -374,9 +370,8 @@ ul::-webkit-scrollbar-thumb {
     transform: scaleY(0.7);
 }
 .logoff{
-    font-size: 13px;
     position: absolute;
-    top: 48px;
+    top: 40px;
     right: 12px;
     border:solid  1px  #AAAAAA ;
     border-radius: 3px;

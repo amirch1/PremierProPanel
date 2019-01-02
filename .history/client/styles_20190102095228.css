@@ -366,6 +366,7 @@ ul::-webkit-scrollbar-thumb {
     padding-top: 4px;
 }
 .user-menu{
+    font-size: 13px;
     color: white;
     padding-left: 4px;
     padding-right: 8px;
@@ -374,9 +375,8 @@ ul::-webkit-scrollbar-thumb {
     transform: scaleY(0.7);
 }
 .logoff{
-    font-size: 13px;
     position: absolute;
-    top: 48px;
+    top: 40px;
     right: 12px;
     border:solid  1px  #AAAAAA ;
     border-radius: 3px;

@@ -204,7 +204,7 @@ ul li img{
 }
 .search{
     font-weight: normal !important;
-    margin-right: 17px !important;
+    margin-right: 200px
 }
 .search,
 ul li button{
@@ -374,9 +374,8 @@ ul::-webkit-scrollbar-thumb {
     transform: scaleY(0.7);
 }
 .logoff{
-    font-size: 13px;
     position: absolute;
-    top: 48px;
+    top: 40px;
     right: 12px;
     border:solid  1px  #AAAAAA ;
     border-radius: 3px;
