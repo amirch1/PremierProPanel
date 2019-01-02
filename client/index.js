@@ -228,7 +228,8 @@ function listEntries(){
         format: 1,
         ks: ks,
         filter: {
-            typeEqual: 1,
+            mediaTypeIn: '1',
+            objectType: "KalturaMediaEntryFilter",
             nameMultiLikeOr: search.length ? search  : ''
         },
         responseProfile: {
