@@ -69,7 +69,8 @@ $('#uploadCurrentEntry').on('click', function(){
 });
 $('#updateOpenEntry').on('click', function(){
     $('input[type=radio][name=update]').prop( "checked", true );
-    $("#commentsArea").val('')
+    $("#commentsArea").val('');
+    $("#updateEntryName").val('');
     $('#update').show();
 });
 $('#cancel-edit-button').on('click', function(){
@@ -365,7 +366,7 @@ function download(src, name, entryId, thumbnailUrl){
     }, function( response ) {
         if (response.objects.length){
             const metadata = response.objects[0].xml;
-            const message = metadata.substring(metadata.indexOf('<Comments>')+10, metadata.indexOf('</Comments'));
+            const message = metadata.substring(metadata.indexOf('<Tasks>')+7, metadata.indexOf('</Tasks'));
             $('#task').text(message);
         }
     });
@@ -563,7 +564,7 @@ function b64toBlob(b64Data, contentType, sliceSize) {
 
 function exportClip() {
     setStatus("Rendering Media...");
-    var outputPresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/Kaltura.epr';
+    var outputPresetPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/presets/Kaltura_medium.epr';
     var outputPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/export';
     csInterface.evalScript("exportMedia('" + outputPresetPath + "', '" + outputPath + "', '"+ "temp" + "')");
     resetStatus();
