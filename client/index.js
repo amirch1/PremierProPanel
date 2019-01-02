@@ -482,8 +482,6 @@ function createFolder(path)
 }
 function setStatus(status){
     $('#status').text(status).addClass("working");
-
-
 }
 function resetStatus(status){
     $('#status').text('Idle').removeClass("working");
