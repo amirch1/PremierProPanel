@@ -69,7 +69,8 @@ $('#uploadCurrentEntry').on('click', function(){
 });
 $('#updateOpenEntry').on('click', function(){
     $('input[type=radio][name=update]').prop( "checked", true );
-    $("#commentsArea").val('')
+    $("#commentsArea").val('');
+    $("#updateEntryName").val('');
     $('#update').show();
 });
 $('#cancel-edit-button').on('click', function(){
