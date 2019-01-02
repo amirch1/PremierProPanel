@@ -3,16 +3,32 @@ var ks = '';
 var uploadTokenId = '';
 var originalEntryId = '';
 var entryId = '';
+var mainUpload = false;
 
 $('#login-button').on('click', login);
 $('#download-button').on('click', download);
 $('#close-edit-button').on('click', closeEdit);
-$('#upload-button').on('click', upload);
-$('#export-button').on('click', exportClip);
+$('#main-upload').on('click', function(){
+    if ($('#uploadEntryName').val().length === 0){
+        alert("Please Enter an Entry Name.");
+    } else {
+        mainUpload = true;
+        if ($('input[type=radio][name=upload]:checked').val() === "sequence"){
+            setTimeout(()=>{
+                exportClip();
+                upload();
+            }, 200);
+        } else{
+            alert("select entry!")
+        }
+
+    }
+});
 $('#uploadCurrentEntry').on('click', function(){
     if ($('input[type=radio][name=update]:checked').val() === "create" && $('#updateEntryName').val().length === 0){
         alert("Please Enter an Entry Name.");
     } else {
+        mainUpload = false;
         $('#update').hide();
         $('#editEntry').hide();
         $("#comments").text($("#commentsArea").val());
@@ -46,8 +62,10 @@ $('#upload-done-button').on('click', function(){
     $('#entriesList').show();
 });
 $('#main-upload-button').on('click', function(){
-    closeOpenPanels();
     $('#upload').show();
+});
+$('#cancel-upload-button').on('click', function(){
+    $('#upload').hide();
 });
 $('.username').hide();
 $('.logoff').hide()
@@ -342,14 +360,14 @@ function upload() {
         continueUpload();
     });
 
-    if ($('input[type=radio][name=update]:checked').val() === "create"){
+    if ((!mainUpload && $('input[type=radio][name=update]:checked').val() === "create") || mainUpload){
         // create a new entry
         $.post( "https://www.kaltura.com/api_v3/service/media/action/add", {
             format: 1,
             ks: ks,
             entry: {
                 mediaType: 1,
-                name: $('#updateEntryName').val(),
+                name: mainUpload ? $('#uploadEntryName').val() : $('#updateEntryName').val(),
                 objectType: "KalturaMediaEntry"
             }
         }, function( entry ) {
@@ -465,12 +483,6 @@ function exportClip() {
     resetStatus();
 }
 
-function closeOpenPanels(){
-    const pannelsToClose = ["uploading","update","editEntry","entriesList","log-off","upload"];
-    pannelsToClose.forEach(element => {
-        $('#'+element).hide();
-    });
-}
 /* utils */
 function pathExists(path)
 {
