@@ -306,6 +306,7 @@ ul::-webkit-scrollbar-thumb {
     height: 160px;
 }
 
+#uploading.panel .buttons,
 #editEntry.panel .buttons{
     bottom: 50px;
     padding-top: 25px;
@@ -319,6 +320,7 @@ ul::-webkit-scrollbar-thumb {
     margin-bottom: 0;
 }
 
+#uploading .buttons,
 #update .buttons,
 #upload .buttons,
 #editEntry .buttons
