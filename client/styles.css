@@ -336,20 +336,20 @@ ul::-webkit-scrollbar-thumb {
     padding-top: 32px;
 }
 
-#editEntry .buttons, #update .buttons, #upload .buttons, #uploading .buttons{
+#editEntry .buttons, #update .buttons, #upload .buttons, #uploading .buttons, #alert-layer .buttons{
     display: flex;
     margin-top: 50px;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
-#editEntry .button, #update .button, #upload .button, #uploading .button{
+#editEntry .button, #update .button, #upload .button, #uploading .button, #alert-layer .button{
     width: 120px;
     height: 32px;
     margin-left: 12px;
     margin-right: 12px;
 }
-#editEntry .button span, #update .button span, #upload .button span, #uploading .button span{
+#editEntry .button span, #update .button span, #upload .button span, #uploading .button span, #alert-layer .button span{
     line-height: 32px;
     font-size: 14px;
     font-weight: bold;
@@ -430,8 +430,11 @@ ul::-webkit-scrollbar-thumb {
     top: 37%;
     height: 150px; 
 }
-.button.alert{
-    width: 150px;
+.alert-text{
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #F8A61A;
 }
 #alert-layer{
     position: absolute;
@@ -442,4 +445,24 @@ ul::-webkit-scrollbar-thumb {
     right: 0;
     bottom: 0;
     background:rgba(255,255,255,0.3);
+}
+#alert-layer .button{
+    text-align: center;
+    width: 80px;
+    height: 28px;
+    border: 1px solid #666666;
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.1);
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+}
+#alert-layer .button:hover{
+    background-color: #F8A61A;
+    border: 1px solid #F8A61A;
+}
+#alert-layer .button span{
+    line-height: 28px;
+    font-size: 14px;
 }
